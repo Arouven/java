@@ -13,5 +13,7 @@ public class Manager extends Staff {
     public void viewSalesReport(){
         System.out.println("sales report");
     }
-    
+    public void purchaseStock(){
+        System.out.println("buying new stock of movies");
+    }
 }
