@@ -10,4 +10,8 @@ public class Manager extends Staff {
     public void viewReport(){
         System.out.println("Report is : ");
     }
+    public void viewSales(){
+        System.out.println("sales report");
+    }
+    
 }
