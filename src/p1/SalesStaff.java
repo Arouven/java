@@ -10,7 +10,12 @@ package p1;
  * @author arouven
  */
 public class SalesStaff extends Staff {
+    //vars
     
+    //setters and getters
+    
+    
+    //methods
     public void performSales(){
         System.out.println("performing a sale");
     }

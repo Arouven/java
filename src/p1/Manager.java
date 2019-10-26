@@ -7,6 +7,11 @@ package p1;
 
 //a manager is a staff
 public class Manager extends Staff {
+    //vars
+    
+    //setters getters
+    
+    //methods
     public void viewReport(){
         System.out.println("Report is : ");
     }

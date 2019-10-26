@@ -10,5 +10,5 @@ package p1;
  * @author arouven
  */
 public class Sales {
-    
+    private int salesId;
 }
