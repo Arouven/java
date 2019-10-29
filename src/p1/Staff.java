@@ -9,7 +9,7 @@ package p1;
  *
  * @author arouven
  */
-public class Staff {//inherited
+public class Staff {//will be inherited
     //vars
     protected int staffId;
     protected String staffName;

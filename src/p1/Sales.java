@@ -11,4 +11,10 @@ package p1;
  */
 public class Sales {
     private int salesId;
+    private int customerId;
+    private int staffId;
+    
+    public void printReceipt(){
+        System.out.println("take your receipt");
+    }
 }

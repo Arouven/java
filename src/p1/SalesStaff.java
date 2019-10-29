@@ -28,5 +28,8 @@ public class SalesStaff extends Staff {
     public void deleteMovies(){
         System.out.println("deleting old movies");
     }
+    public void checkStockMovies(){
+        System.out.println("movies are available in stock");
+    }
     
 }
