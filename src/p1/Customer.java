@@ -17,6 +17,26 @@ public class Customer {//member parent class
     protected String customerEmail;
     protected int customerPhoneNo;
     
+    //constructors
+    public Customer() {//default
+    }  
+    public Customer(int customerID) {
+        this.customerID = customerID;
+        this.customerAddress = "Tour Koenik";
+    }
+    public Customer(String customerName) {
+        this.customerName = customerName;
+        this.customerAddress = "Tour Koenik";
+    }
+    public Customer(int customerID, String customerName) {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.customerAddress = "Tour Koenik";
+    }
+
+    
+    
+    
     //setters
     public void setCustomerID(int customerID) {
         this.customerID = customerID;

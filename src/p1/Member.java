@@ -10,6 +10,27 @@ package p1;
  * @author arouven
  */
 public class Member extends Customer {//a member is a customer with special offer
+    //var
     private double percentageDiscount;
+
+    //constructors
+    public Member() {//default constructor
+        this.percentageDiscount = 5;
+    }
+    public Member(double percentageDiscount) {//paramererised constructor
+        this.percentageDiscount = percentageDiscount;
+    }
+    
+    //getter
+    public double getPercentageDiscount() {
+        return percentageDiscount;
+    }
+
+    //setter
+    public void setPercentageDiscount(double percentageDiscount) {
+        this.percentageDiscount = percentageDiscount;
+    }
+    
+    
     
 }

@@ -59,13 +59,16 @@ public class SalesStaff {
     public void addCustomer(){
         System.out.println("add a customer");
     }
+    public void addMember(){
+        System.out.println("add a new member");
+    }
     public void insertMovies(){
         System.out.println("add new movies");
     }
     public void deleteMovies(){
         System.out.println("deleting old movies");
     }
-    public void checkStockMovies(){
+    public void checkNoOfMovies(){
         System.out.println("movies are available in stock");
     }
     
