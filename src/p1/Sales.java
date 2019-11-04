@@ -44,9 +44,11 @@ public class Sales {
         return movieId;
     }
     
-    
-    
+    //method
     public void printReceipt(){
-        System.out.println("take your receipt");
+        System.out.println("receipt for: "+getCustomerId());
+        System.out.println("staff id: "+getStaffId());
+        System.out.println("movie id: "+getMovieId());
+        System.out.println("sales id: "+getSalesId());
     }
 }

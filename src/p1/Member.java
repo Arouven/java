@@ -17,17 +17,6 @@ public class Member extends Customer {//a member is a customer with special offe
     public Member() {//default constructor
         this.percentageDiscount = 5;
     }
-    public Member(double percentageDiscount) {//paramererised constructor
-        this.percentageDiscount = percentageDiscount;
-    }
-    public Member(double percentageDiscount, int customerID, String customerName, String customerAddress, String customerEmail, int customerPhoneNo) {
-        super(customerID, customerName, customerAddress, customerEmail, customerPhoneNo);
-        this.percentageDiscount = percentageDiscount;
-    }
-    public Member(int customerID, String customerName, String customerAddress, String customerEmail, int customerPhoneNo) {
-        super(customerID, customerName, customerAddress, customerEmail, customerPhoneNo);
-        this.percentageDiscount = 5;
-    }
     
     //getter
     public double getPercentageDiscount() {
@@ -39,6 +28,6 @@ public class Member extends Customer {//a member is a customer with special offe
         this.percentageDiscount = percentageDiscount;
     }
     
-    
+    //method
     
 }

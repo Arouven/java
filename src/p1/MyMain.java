@@ -18,7 +18,7 @@ public class MyMain {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Customer c1 = new Customer();// for new customer
+        Customer c1 = new Customer();// for new customer //default will set address to the location of the videoclub
         
         
         Member m1 = new Member();// for new customer member

@@ -19,30 +19,8 @@ public class Customer {//member parent class
     
     //constructors
     public Customer() {//default
-    }  
-    public Customer(int customerID) {
-        this.customerID = customerID;
         this.customerAddress = "Tour Koenik";
-    }
-    public Customer(String customerName) {
-        this.customerName = customerName;
-        this.customerAddress = "Tour Koenik";
-    }
-    public Customer(int customerID, String customerName) {
-        this.customerID = customerID;
-        this.customerName = customerName;
-        this.customerAddress = "Tour Koenik";
-    }
-    public Customer(int customerID, String customerName, String customerAddress, String customerEmail, int customerPhoneNo) {
-        this.customerID = customerID;
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerEmail = customerEmail;
-        this.customerPhoneNo = customerPhoneNo;
-    }
-
-    
-    
+    }            
     
     //setters
     public void setCustomerID(int customerID) {
