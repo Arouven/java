@@ -33,6 +33,13 @@ public class Customer {//member parent class
         this.customerName = customerName;
         this.customerAddress = "Tour Koenik";
     }
+    public Customer(int customerID, String customerName, String customerAddress, String customerEmail, int customerPhoneNo) {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerEmail = customerEmail;
+        this.customerPhoneNo = customerPhoneNo;
+    }
 
     
     
