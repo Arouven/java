@@ -21,19 +21,15 @@ public class Customer {
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
-
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
-
     public void setCustomerEmail(String customerEmail) {
         this.customerEmail = customerEmail;
     }
-
     public void setCustomerPhoneNo(int customerPhoneNo) {
         this.customerPhoneNo = customerPhoneNo;
     }
@@ -42,19 +38,15 @@ public class Customer {
     public int getCustomerID() {
         return customerID;
     }
-
     public String getCustomerName() {
         return customerName;
     }
-
     public String getCustomerAddress() {
         return customerAddress;
     }
-
     public String getCustomerEmail() {
         return customerEmail;
     }
-
     public int getCustomerPhoneNo() {
         return customerPhoneNo;
     }
