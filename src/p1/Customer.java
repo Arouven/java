@@ -9,13 +9,13 @@ package p1;
  *
  * @author arouven
  */
-public class Customer {
+public class Customer {//member parent class
     //vars
-    private int customerID;
-    private String customerName;
-    private String customerAddress;
-    private String customerEmail;
-    private int customerPhoneNo;
+    protected int customerID;
+    protected String customerName;
+    protected String customerAddress;
+    protected String customerEmail;
+    protected int customerPhoneNo;
     
     //setters
     public void setCustomerID(int customerID) {
