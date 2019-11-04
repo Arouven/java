@@ -50,4 +50,5 @@ public class Movie {
         return noOfMovies;
     }
     
+    //methods
 }

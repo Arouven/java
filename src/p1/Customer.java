@@ -15,6 +15,7 @@ public class Customer {
     private String customerName;
     private String customerAddress;
     private String customerEmail;
+    private int customerPhoneNo;
     
     //setters
     public void setCustomerID(int customerID) {
@@ -33,6 +34,10 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
+    public void setCustomerPhoneNo(int customerPhoneNo) {
+        this.customerPhoneNo = customerPhoneNo;
+    }
+
     //getters
     public int getCustomerID() {
         return customerID;
@@ -49,5 +54,11 @@ public class Customer {
     public String getCustomerEmail() {
         return customerEmail;
     }
+
+    public int getCustomerPhoneNo() {
+        return customerPhoneNo;
+    }
+    
+    //methods
     
 }

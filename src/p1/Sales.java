@@ -13,6 +13,7 @@ public class Sales {
     private int salesId;
     private int customerId;
     private int staffId;
+    private int movieId;
 
     public void setSalesId(int salesId) {
         this.salesId = salesId;
@@ -26,6 +27,10 @@ public class Sales {
         this.staffId = staffId;
     }
 
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
+    }
+
     public int getSalesId() {
         return salesId;
     }
@@ -36,6 +41,10 @@ public class Sales {
 
     public int getStaffId() {
         return staffId;
+    }
+
+    public int getMovieId() {
+        return movieId;
     }
     
     
