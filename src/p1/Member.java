@@ -29,5 +29,12 @@ public class Member extends Customer {//a member is a customer with special offe
     }
     
     //method
-    
+    public void displayMemberDetails(){
+        System.out.println("members id is:" + getCustomerId());
+        System.out.println("getCustomerName"+getCustomerName());
+        System.out.println("getCustomerAddress"+getCustomerAddress());
+        System.out.println("getCustomerEmail"+getCustomerEmail());
+        System.out.println("getCustomerPhoneNo"+getCustomerPhoneNo());
+        System.out.println("getPercentageDiscount"+getPercentageDiscount());
+    }
 }

@@ -11,7 +11,7 @@ package p1;
  */
 public class Customer {//member parent class
     //vars
-    protected int customerID;
+    protected int customerId;
     protected String customerName;
     protected String customerAddress;
     protected String customerEmail;
@@ -23,8 +23,8 @@ public class Customer {//member parent class
     }            
     
     //setters
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    public void setCustomerID(int customerId) {
+        this.customerId = customerId;
     }
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
@@ -40,8 +40,8 @@ public class Customer {//member parent class
     }
 
     //getters
-    public int getCustomerID() {
-        return customerID;
+    public int getCustomerId() {
+        return customerId;
     }
     public String getCustomerName() {
         return customerName;
@@ -57,5 +57,11 @@ public class Customer {//member parent class
     }
     
     //methods
-    
+    public void displayCustomerDetails(){
+        System.out.println("customer id is:" + getCustomerId());
+        System.out.println("getCustomerName"+getCustomerName());
+        System.out.println("getCustomerAddress"+getCustomerAddress());
+        System.out.println("getCustomerEmail"+getCustomerEmail());
+        System.out.println("getCustomerPhoneNo"+getCustomerPhoneNo());
+    }
 }

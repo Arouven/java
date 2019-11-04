@@ -45,4 +45,10 @@ public class Movie {
     }
     
     //methods
+    public void displayMovieDetails(){
+        System.out.println("getMovieId is:" + getMovieId());
+        System.out.println("getMovieName"+getMovieName());
+        System.out.println("getMovieType"+getMovieType());
+        System.out.println("getNoOfMovies"+getNoOfMovies());
+    }
 }

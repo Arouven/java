@@ -9,7 +9,7 @@ package p1;
  *
  * @author arouven
  */
-public class SalesStaff {
+public class Staff {
     //vars
     private int staffId;
     private String staffName;
@@ -51,25 +51,39 @@ public class SalesStaff {
         return staffPhoneNo;
     }
     
-    
+    int noSalePerform = 0;
+    int noCustomerAdded = 0;
+    int noMemberAdded = 0;
     //methods
-    public void performSales(){
-        System.out.println("performing a sale");
+    public void performSales(){        
+        noSalePerform ++;
+        System.out.println("performing a sale. num of sales is "+noSalePerform);
     }
     public void addCustomer(){
-        System.out.println("add a customer");
+        noCustomerAdded ++;
+        System.out.println("add a customer. num customer addes: "+noCustomerAdded);
     }
     public void addMember(){
-        System.out.println("add a new member");
+        noMemberAdded++;
+        System.out.println("add a new member. num of mem added: "+noMemberAdded);
+    }   
+    public void insertMovies(String movieName,int noMovies){
+        System.out.println("add new movies "+movieName);
+        System.out.println("no of copies "+noMovies);
     }
-    public void insertMovies(){
-        System.out.println("add new movies");
-    }
-    public void deleteMovies(){
-        System.out.println("deleting old movies");
-    }
-    public void checkNoOfMovies(){
-        System.out.println("movies are available in stock");
+    public void deleteMovies(String movieName){
+        System.out.println("deleting old movies"+movieName);
+    }    
+    public void checkNoOfMovies(int noMovies){        
+        System.out.println("movies are available in stock"+noMovies);
     }
     
+    
+    public void displayStaffDetails(){
+        System.out.println("staff id is:" + getStaffId());
+        System.out.println("getStaffName"+getStaffName());
+        System.out.println("getStaffAddress"+getStaffAddress());
+        System.out.println("getStaffEmail"+getStaffEmail());
+        System.out.println("getStaffPhoneNo"+getStaffPhoneNo());
+    }
 }
