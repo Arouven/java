@@ -15,6 +15,7 @@ public class Movie {
     private String movieName;
     private String movieType;
     private int noOfMovies;
+    private double moviePrice=100;
 
     //setters
     public void setMovieId(int movieId) {
@@ -28,6 +29,9 @@ public class Movie {
     }
     public void setNoOfMovies(int noOfMovies) {
         this.noOfMovies = noOfMovies;
+    }  
+    public void setMoviePrice(double moviePrice) {
+        this.moviePrice = moviePrice;
     }
 
     //getters
@@ -43,12 +47,23 @@ public class Movie {
     public int getNoOfMovies() {
         return noOfMovies;
     }
+    public double getMoviePrice() {
+        return moviePrice;
+    }
+    
+
+    
     
     //methods
+    public void calculateDiscount(double percentageDiscount){
+        double discount = getMoviePrice()*(percentageDiscount/100);
+        this.moviePrice -= discount;
+    }
     public void displayMovieDetails(){
         System.out.println("getMovieId is:" + getMovieId());
         System.out.println("getMovieName"+getMovieName());
         System.out.println("getMovieType"+getMovieType());
         System.out.println("getNoOfMovies"+getNoOfMovies());
+        System.out.println("getMoviePrice"+getMoviePrice());
     }
 }

@@ -55,9 +55,10 @@ public class Staff {
     int noCustomerAdded = 0;
     int noMemberAdded = 0;
     //methods
-    public void performSales(){        
+    public int performSales(int movieNo){        
         noSalePerform ++;
         System.out.println("performing a sale. num of sales is "+noSalePerform);
+        return movieNo--;
     }
     public void addCustomer(){
         noCustomerAdded ++;

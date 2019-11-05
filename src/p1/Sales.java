@@ -43,7 +43,7 @@ public class Sales {
     public int getMovieId() {
         return movieId;
     }
-    
+
     //method
     public void printReceipt(){
         System.out.println("receipt for: "+getCustomerId());
