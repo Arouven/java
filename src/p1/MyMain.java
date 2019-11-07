@@ -47,7 +47,6 @@ public class MyMain {
         mem1.setCustomerPhoneNo(999999);
         mem1.setCustomerAddress("member addr mauritius");
         mem1.setCustomerEmail("member email myemail.com");
-        mem1.setPercentageDiscount(10.0);
         
         
         //staff adding a movie
@@ -58,10 +57,7 @@ public class MyMain {
         
         
         //staff making sales
-        sal1.setSalesId(1);
-        sal1.setMovieId(1);
-        sal1.setStaffId(1);
-        sal1.setCustomerId(1);
+
         
         
         cus1.displayCustomerDetails();
@@ -71,17 +67,7 @@ public class MyMain {
         
         
         
-        st1.performSales();
-                
-        st1.addCustomer();
-            
-        st1.addMember();
-
-        st1.insertMovies("jean jean",100);
         
-        st1.deleteMovies("movie name john wick");
-        
-        st1.checkNoOfMovies(200);
         
         st1.displayStaffDetails();
         
