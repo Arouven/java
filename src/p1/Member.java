@@ -11,30 +11,17 @@ package p1;
  */
 public class Member extends Customer {//a member is a customer with special offer
     //var
-    private double percentageDiscount;
-
-    //constructors
-    public Member() {//default constructor
-        this.percentageDiscount = 5;
-    }
-    
-    //getter
-    public double getPercentageDiscount() {
-        return percentageDiscount;
-    }
-
-    //setter
-    public void setPercentageDiscount(double percentageDiscount) {
-        this.percentageDiscount = percentageDiscount;
-    }
+   
     
     //method
-    public void displayMemberDetails(){
-        System.out.println("members id is:" + getCustomerId());
-        System.out.println("getCustomerName"+getCustomerName());
-        System.out.println("getCustomerAddress"+getCustomerAddress());
-        System.out.println("getCustomerEmail"+getCustomerEmail());
-        System.out.println("getCustomerPhoneNo"+getCustomerPhoneNo());
-        System.out.println("getPercentageDiscount"+getPercentageDiscount());
+    int noMemberAdded;
+    public void addMember(){
+        noMemberAdded ++;
+    } 
+    public String displayAddedMembers(){
+        return "Number of members added: " + noMemberAdded;
+    }
+    public String displayMemberDetails(){
+      return getCustomerName()+" "+getCustomerAddress();
     }
 }

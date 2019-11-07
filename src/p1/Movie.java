@@ -16,7 +16,15 @@ public class Movie {
     private String movieType;
     private int noOfMovies;
     private double moviePrice=100;
+    private double percentageDiscount;
 
+    //constructors
+    public Movie() {
+    }
+    public Movie(double percentageDiscount) {
+        this.percentageDiscount = percentageDiscount;
+    }
+    
     //setters
     public void setMovieId(int movieId) {
         this.movieId = movieId;
@@ -31,7 +39,10 @@ public class Movie {
         this.noOfMovies = noOfMovies;
     }  
     public void setMoviePrice(double moviePrice) {
-        this.moviePrice = moviePrice;
+        this.moviePrice = moviePrice;        
+    }
+    public void setPercentageDiscount(double percentageDiscount) {
+        this.percentageDiscount = percentageDiscount;
     }
 
     //getters
@@ -50,20 +61,32 @@ public class Movie {
     public double getMoviePrice() {
         return moviePrice;
     }
+    public double getPercentageDiscount() {
+        return percentageDiscount;
+    }
     
 
-    
+    public void insertMovies(String movieName,int noMovies){
+        System.out.println("add new movies "+movieName);
+        System.out.println("no of copies "+noMovies);
+    }
+    public void deleteMovies(String movieName){
+        System.out.println("deleting old movies"+movieName);
+    }    
+    public void checkNoOfMovies(int noMovies){        
+        System.out.println("movies are available in stock"+noMovies);
+    }
     
     //methods
-    public void calculateDiscount(double percentageDiscount){
-        double discount = getMoviePrice()*(percentageDiscount/100);
-        this.moviePrice -= discount;
+    public void setMoviePriceForMember(){
+        this.moviePrice -= (getMoviePrice()*(percentageDiscount/100));
     }
-    public void displayMovieDetails(){
-        System.out.println("getMovieId is:" + getMovieId());
-        System.out.println("getMovieName"+getMovieName());
-        System.out.println("getMovieType"+getMovieType());
-        System.out.println("getNoOfMovies"+getNoOfMovies());
-        System.out.println("getMoviePrice"+getMoviePrice());
+    public String displayMovieDetails(){
+        return
+                "getMovieId is:" + getMovieId() + "\n" +
+                "getMovieName" + getMovieName() + "\n" +
+                "getMovieType" + getMovieType() + "\n" +
+                "getNoOfMovies" + getNoOfMovies() + "\n" +
+                "getMoviePrice" + getMoviePrice();
     }
 }

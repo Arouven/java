@@ -17,11 +17,6 @@ public class Customer {//member parent class
     protected String customerEmail;
     protected int customerPhoneNo;
     
-    //constructors
-    public Customer() {//default
-        this.customerAddress = "Tour Koenik";
-    }            
-    
     //setters
     public void setCustomerID(int customerId) {
         this.customerId = customerId;
@@ -57,11 +52,22 @@ public class Customer {//member parent class
     }
     
     //methods
-    public void displayCustomerDetails(){
-        System.out.println("customer id is:" + getCustomerId());
-        System.out.println("getCustomerName"+getCustomerName());
-        System.out.println("getCustomerAddress"+getCustomerAddress());
-        System.out.println("getCustomerEmail"+getCustomerEmail());
-        System.out.println("getCustomerPhoneNo"+getCustomerPhoneNo());
+    private int noCustomerAdded;
+    public void addCustomer(){
+        noCustomerAdded ++;
+    }
+    public void deleteCustomer(){
+        noCustomerAdded --;
+    }
+    public String displayAddedCustomers(){
+        return "Number of customers added: " + noCustomerAdded;
+    }
+    public String displayCustomerDetails(){
+        return
+                "customer id is:" + getCustomerId() + "\n" +
+                "getCustomerName" + getCustomerName() + "\n" +
+                "getCustomerAddress" + getCustomerAddress() + "\n" +
+                "getCustomerEmail" + getCustomerEmail() + "\n" +
+                "getCustomerPhoneNo" + getCustomerPhoneNo();
     }
 }
