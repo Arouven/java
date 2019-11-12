@@ -48,6 +48,7 @@ public class MyMain {
         movie1.setMovieName(JOptionPane.showInputDialog("Input movie name(string)"));
         movie1.setMovieType(JOptionPane.showInputDialog("Input movie type(string)"));
         movie1.setNoOfMovies(Integer.parseInt(JOptionPane.showInputDialog("Input number of movies to be added(interger)")));
+        movie1.setPercentageDiscount(0);
         JOptionPane.showMessageDialog(null, movie1.displayMovieDetails());//display movie details
         
         

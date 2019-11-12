@@ -16,7 +16,7 @@ public class Movie {
     private String movieType;
     private int noOfMovies;
     private double moviePrice = 100;
-    private double percentageDiscount;
+    private double percentageDiscount = 0;
 
     //constructors
 //    public Movie() {
