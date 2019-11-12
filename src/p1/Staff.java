@@ -54,10 +54,11 @@ public class Staff {
     //methods
     public String displayStaffDetails(){
         return 
-                "staff id is:" + getStaffId() + "\n" +
-                "getStaffName" + getStaffName() + "\n" +
-                "getStaffAddress" + getStaffAddress() + "\n" +
-                "getStaffEmail" + getStaffEmail() + "\n" +
-                "getStaffPhoneNo" + getStaffPhoneNo();
+                "Staff details is: \n" +
+                "Staff id is: " + getStaffId() + "\n" +
+                "Staff Name is: " + getStaffName() + "\n" +
+                "Staff Address is: " + getStaffAddress() + "\n" +
+                "Staff Email is: " + getStaffEmail() + "\n" +
+                "Staff Phone No. :" + getStaffPhoneNo();
     }
 }

@@ -15,15 +15,15 @@ public class Movie {
     private String movieName;
     private String movieType;
     private int noOfMovies;
-    private double moviePrice=100;
+    private double moviePrice = 100;
     private double percentageDiscount;
 
     //constructors
-    public Movie() {
-    }
-    public Movie(double percentageDiscount) {
-        this.percentageDiscount = percentageDiscount;
-    }
+//    public Movie() {
+//    }
+//    public Movie(double percentageDiscount) {
+//        this.percentageDiscount = percentageDiscount;
+//    }
     
     //setters
     public void setMovieId(int movieId) {
@@ -66,21 +66,21 @@ public class Movie {
     }
     
 
-    public void insertMovies(String movieName,int noMovies){
-        System.out.println("add new movies "+movieName);
-        System.out.println("no of copies "+noMovies);
-    }
-    public void deleteMovies(String movieName){
-        System.out.println("deleting old movies"+movieName);
-    }    
-    public void checkNoOfMovies(int noMovies){        
-        System.out.println("movies are available in stock"+noMovies);
-    }
+//    public void insertMovies(String movieName,int noMovies){
+//        System.out.println("add new movies " + movieName);
+//        System.out.println("no of copies " + noMovies);
+//    }
+//    public void deleteMovies(String movieName){
+//        System.out.println("deleting old movies" + movieName);
+//    }    
+//    public void checkNoOfMovies(int noMovies){        
+//        System.out.println("movies are available in stock" + noMovies);
+//    }
     
     //methods
-    public void setMoviePriceForMember(){
-        this.moviePrice -= (getMoviePrice()*(percentageDiscount/100));
-    }
+//    public void setMoviePriceForMember(){
+//        this.moviePrice -= (getMoviePrice() * (percentageDiscount / 100));
+//    }
     public String displayMovieDetails(){
         return
                 "getMovieId is:" + getMovieId() + "\n" +

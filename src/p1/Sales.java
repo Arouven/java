@@ -12,7 +12,9 @@ package p1;
 public class Sales {
     //vars
     private int salesId;
-    private int noSalePerform = 0;
+    
+    public static int noSalePerform = 0;
+    
     public Customer customerObj = new Customer();
     public Staff staffObj = new Staff();
     public Movie movieObj = new Movie();
@@ -27,14 +29,21 @@ public class Sales {
         return salesId;
     }
     
+    
+    
     //method    
     public String totalSales(){           
         return "total sales for the day is " + noSalePerform;        
     }
     public String printReceipt(){
-        noSalePerform ++;
-        movieObj.setNoOfMovies(movieObj.getNoOfMovies()-1);
-        return
+        if(customerObj.isMember() == true){
+            
+            noSalePerform ++;
+            movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);
+            
+            movieObj.setMoviePrice(movieObj.getMoviePrice() - (movieObj.getMoviePrice() * (movieObj.getPercentageDiscount() / 100))); 
+            
+            return
                 "receipt for: " + customerObj.getCustomerId() +"\n" +
                 "\t\tmr(s)" + customerObj.getCustomerName() +"\n\n" +
                 
@@ -47,5 +56,30 @@ public class Sales {
                 
                 
                 "sales id: " + getSalesId();
+            
+            
+        }
+        else{
+            noSalePerform ++;
+            movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);
+            
+            return
+                "receipt for: " + customerObj.getCustomerId() +"\n" +
+                "\t\tmr(s)" + customerObj.getCustomerName() +"\n\n" +
+                
+                "staff id: " + staffObj.getStaffId() +"\n" +
+                "\t\tperform by: " + staffObj.getStaffName() +"\n\n" +
+                
+                "movie id: " + movieObj.getMovieId() +"\n" +
+                "movie name: " + movieObj.getMovieName() +"\n" +
+                "price: " + movieObj.getMoviePrice() +"\n\n\n" +
+                
+                
+                "sales id: " + getSalesId();
+            
+            
+            
+        }
+        
     }
 }

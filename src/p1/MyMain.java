@@ -5,6 +5,12 @@
  */
 package p1;
 
+import javax.swing.JOptionPane;
+
+import static p1.Customer.addCustomer;
+import static p1.Customer.deleteCustomer;
+import static p1.Customer.displayAddedCustomers;
+
 /**
  *
  * @author arouven
@@ -16,64 +22,69 @@ public class MyMain {
      */
     public static void main(String[] args) {
         // instantiating objects
-        Staff st1 = new Staff();
+        Staff staff1 = new Staff();
         
-        Customer cus1 = new Customer();// for new customer //default will set address to the location of the videoclub    
+        Customer customer1 = new Customer();// for new customer //default will set address to the location of the videoclub    
         
-        Member mem1 = new Member();// for new customer member
+        Member memember1 = new Member();// for new customer member
         
-        Movie mov1 = new Movie();
+        Movie movie1 = new Movie();
         
-        Sales sal1 = new Sales();
-        
-        st1.setStaffId(1);
-        st1.setStaffName("staff name john");
-        st1.setStaffPhoneNo(7777777);
-        st1.setStaffAddress("staff addr mauritius");
-        st1.setStaffEmail("staff email myemail.com");
+        Sales sales1 = new Sales();
         
         
-        //staff creates new customer
-        cus1.setCustomerID(1);
-        cus1.setCustomerName("customer name john");
-        cus1.setCustomerPhoneNo(888888);
-        cus1.setCustomerAddress("customer addr mauritius");
-        cus1.setCustomerEmail("customer email myemail.com");
+        //creating new staff  
+        staff1.setStaffId(Integer.parseInt(JOptionPane.showInputDialog("Input staff id(interger)")));
+        staff1.setStaffName(JOptionPane.showInputDialog("Input staff name(string)"));
+        staff1.setStaffPhoneNo(Integer.parseInt(JOptionPane.showInputDialog("Input staff phone no(interger)")));
+        staff1.setStaffAddress(JOptionPane.showInputDialog("Input staff address(string)"));
+        staff1.setStaffEmail(JOptionPane.showInputDialog("Input staff email(string)"));
+        JOptionPane.showMessageDialog(null, staff1.displayStaffDetails());//display staff details
         
         
-        //staff create member
-        mem1.setCustomerID(1);
-        mem1.setCustomerName("member name smith");
-        mem1.setCustomerPhoneNo(999999);
-        mem1.setCustomerAddress("member addr mauritius");
-        mem1.setCustomerEmail("member email myemail.com");
+        
+        //creating new movie
+        movie1.setMovieId(Integer.parseInt(JOptionPane.showInputDialog("Input movie id(interger)")));
+        movie1.setMovieName(JOptionPane.showInputDialog("Input movie name(string)"));
+        movie1.setMovieType(JOptionPane.showInputDialog("Input movie type(string)"));
+        movie1.setNoOfMovies(Integer.parseInt(JOptionPane.showInputDialog("Input number of movies to be added(interger)")));
+        JOptionPane.showMessageDialog(null, movie1.displayMovieDetails());//display movie details
         
         
-        //staff adding a movie
-        mov1.setMovieId(1);
-        mov1.setMovieName("movie name john wick");
-        mov1.setMovieType("movie type is action");
-        mov1.setNoOfMovies(10);
+        
+        //creating new customer
+        customer1.setCustomerId(Integer.parseInt(JOptionPane.showInputDialog("Input customer id(interger)")));
+        customer1.setCustomerName(JOptionPane.showInputDialog("Input customer name(string)"));
+        customer1.setCustomerPhoneNo(Integer.parseInt(JOptionPane.showInputDialog("Input customer phone no(interger)")));
+        customer1.setCustomerAddress(JOptionPane.showInputDialog("Input customer address(string)"));
+        customer1.setCustomerEmail(JOptionPane.showInputDialog("Input customer email(string)"));
+        customer1.setMember(true);
+        addCustomer();//adding 1 to customer
+        JOptionPane.showMessageDialog(null, customer1.displayCustomerDetails());//display customer details
+        
+       
         
         
-        //staff making sales
+        
+        //creating new sales
+        sales1.setSalesId(1);
 
         
+        JOptionPane.showMessageDialog(null, sales1.printReceipt());
         
-        cus1.displayCustomerDetails();
-        mem1.displayMemberDetails();
-        mov1.displayMovieDetails();
-        sal1.printReceipt();
+         
         
-        
+        JOptionPane.showMessageDialog(null, displayAddedCustomers());
         
         
-        
-        st1.displayStaffDetails();
-        
-        mov1.displayMovieDetails();
+        //to delete a customer
+        deleteCustomer();
         
         
+        //at the end of the day display all customers added
+        JOptionPane.showMessageDialog(null, displayAddedCustomers());
+        
+        JOptionPane.showMessageDialog(null, sales1.totalSales());
     
         System.exit(0);
     }

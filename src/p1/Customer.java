@@ -15,10 +15,18 @@ public class Customer {//member parent class
     protected String customerName;
     protected String customerAddress;
     protected String customerEmail;
-    protected int customerPhoneNo;
+    protected int customerPhoneNo;   
+    protected boolean member;
+        
+    public static int noOfCustomers;
+    
+    //constructor
+    public Customer() {
+        this.member = false;
+    }
     
     //setters
-    public void setCustomerID(int customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
     public void setCustomerName(String customerName) {
@@ -32,6 +40,9 @@ public class Customer {//member parent class
     }
     public void setCustomerPhoneNo(int customerPhoneNo) {
         this.customerPhoneNo = customerPhoneNo;
+    }
+    public void setMember(boolean member) {
+        this.member = member;
     }
 
     //getters
@@ -50,24 +61,31 @@ public class Customer {//member parent class
     public int getCustomerPhoneNo() {
         return customerPhoneNo;
     }
+    public boolean isMember() {
+        return member;
+    }
+    
     
     //methods
-    private int noCustomerAdded;
-    public void addCustomer(){
-        noCustomerAdded ++;
+    public static void addCustomer(){ 
+        noOfCustomers ++;
+        System.out.println("customer created.");
     }
-    public void deleteCustomer(){
-        noCustomerAdded --;
+    public static void deleteCustomer(){
+        noOfCustomers --;
+        System.out.println("customer deleted.");
     }
-    public String displayAddedCustomers(){
-        return "Number of customers added: " + noCustomerAdded;
+    public static String displayAddedCustomers(){
+        return "Number of customers added: " + noOfCustomers;
     }
     public String displayCustomerDetails(){
         return
-                "customer id is:" + getCustomerId() + "\n" +
-                "getCustomerName" + getCustomerName() + "\n" +
-                "getCustomerAddress" + getCustomerAddress() + "\n" +
-                "getCustomerEmail" + getCustomerEmail() + "\n" +
-                "getCustomerPhoneNo" + getCustomerPhoneNo();
+                "Customer details are:\n" +
+                "Customer id is:" + getCustomerId() + "\n" +
+                "Customer Name" + getCustomerName() + "\n" +
+                "Customer Address" + getCustomerAddress() + "\n" +
+                "Customer Email" + getCustomerEmail() + "\n" +
+                "Customer Phone No." + getCustomerPhoneNo() + "\n" +
+                "Customer is a member" + isMember();
     }
 }
