@@ -81,11 +81,11 @@ public class Customer {//member parent class
     public String displayCustomerDetails(){
         return
                 "Customer details are:\n" +
-                "Customer id is:" + getCustomerId() + "\n" +
-                "Customer Name" + getCustomerName() + "\n" +
-                "Customer Address" + getCustomerAddress() + "\n" +
-                "Customer Email" + getCustomerEmail() + "\n" +
-                "Customer Phone No." + getCustomerPhoneNo() + "\n" +
-                "Customer is a member" + isMember();
+                "Customer id is: " + getCustomerId() + "\n" +
+                "Customer Name: " + getCustomerName() + "\n" +
+                "Customer Address: " + getCustomerAddress() + "\n" +
+                "Customer Email: " + getCustomerEmail() + "\n" +
+                "Customer Phone No.: " + getCustomerPhoneNo() + "\n" +
+                "Customer is a member: " + isMember();
     }
 }

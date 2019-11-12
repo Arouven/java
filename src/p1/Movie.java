@@ -83,10 +83,10 @@ public class Movie {
 //    }
     public String displayMovieDetails(){
         return
-                "getMovieId is:" + getMovieId() + "\n" +
-                "getMovieName" + getMovieName() + "\n" +
-                "getMovieType" + getMovieType() + "\n" +
-                "getNoOfMovies" + getNoOfMovies() + "\n" +
-                "getMoviePrice" + getMoviePrice();
+                "Movie Id is: " + getMovieId() + "\n" +
+                "Movie Name: " + getMovieName() + "\n" +
+                "Movie Type: " + getMovieType() + "\n" +
+                "No Of Movies: " + getNoOfMovies() + "\n" +
+                "Movie Price: " + getMoviePrice();
     }
 }
