@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package p1;
+package VideoClub;
 
 import javax.swing.JOptionPane;
 
-import static p1.Customer.addCustomer;
-import static p1.Customer.deleteCustomer;
-import static p1.Customer.displayAddedCustomers;
+import static VideoClub.Customer.addCustomer;
+import static VideoClub.Customer.deleteCustomer;
+import static VideoClub.Customer.displayAddedCustomers;
 
 /**
  *
