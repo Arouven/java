@@ -167,7 +167,14 @@ public class AddCustomerForm extends javax.swing.JFrame {
                 myCust.setMember(mem);
                 CustomerForm.custArray.add(myCust);
                 JOptionPane.showConfirmDialog(null, "New customer added: "+custName, "Customer Added", JOptionPane.DEFAULT_OPTION);
-                //this.setVisible(false);
+                
+                customerId.setText("");
+                customerName.setText("");
+                customerAddress.setText("");
+                customerEmail.setText("");
+                customerPhoneNo.setText("");
+                member.setSelected(false);
+
             }
             
         }
