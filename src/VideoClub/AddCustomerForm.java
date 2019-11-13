@@ -134,20 +134,42 @@ public class AddCustomerForm extends javax.swing.JFrame {
 
     private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
         try{
-            int custId = Integer.parseInt(customerId.getText());
-        
-            String custName = customerName.getText();
-            String custAddress = customerAddress.getText();
-            String custEmail = customerEmail.getText();
-            int custPhoneNo = Integer.parseInt(customerPhoneNo.getText());
-            boolean mem = member.isSelected();
-        
-            System.out.println(custId);
-            System.out.println(custName);
-            System.out.println(custAddress);
-            System.out.println(custEmail);
-            System.out.println(custPhoneNo);
-            System.out.println(mem);
+            if(customerId.getText().isEmpty()){                
+                throw new Exception("Empty id");
+            }            
+            else if(customerName.getText().isEmpty()){
+                throw new Exception("Empty name");
+            }
+            else if(customerAddress.getText().isEmpty()){
+                throw new Exception("Empty Address");
+            }
+            else if(customerEmail.getText().isEmpty()){
+                throw new Exception("Empty email");
+            }
+            else if(customerPhoneNo.getText().isEmpty()){
+                throw new Exception("Empty phone no.");
+            }
+            else{     
+                int custId = Integer.parseInt(customerId.getText());
+                String custName = customerName.getText();
+                String custAddress = customerAddress.getText();
+                String custEmail = customerEmail.getText();
+                int custPhoneNo = Integer.parseInt(customerPhoneNo.getText());
+                boolean mem = member.isSelected();
+                
+                
+                Customer myCust = new Customer();
+                myCust.setCustomerId(custId);
+                myCust.setCustomerName(custName);
+                myCust.setCustomerAddress(custAddress);
+                myCust.setCustomerEmail(custEmail);
+                myCust.setCustomerPhoneNo(custPhoneNo);
+                myCust.setMember(mem);
+                CustomerForm.custArray.add(myCust);
+                JOptionPane.showConfirmDialog(null, "New customer added: "+custName, "Customer Added", JOptionPane.DEFAULT_OPTION);
+                //this.setVisible(false);
+            }
+            
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);

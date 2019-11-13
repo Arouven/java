@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import static VideoClub.Customer.addCustomer;
 import static VideoClub.Customer.deleteCustomer;
 import static VideoClub.Customer.displayAddedCustomers;
+import java.awt.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,6 +32,8 @@ public class MyMain {
         
         Sales sales1 = new Sales();
         
+        
+    
         
         //creating new staff  
         staff1.setStaffId(Integer.parseInt(JOptionPane.showInputDialog("Input staff id(interger)")));

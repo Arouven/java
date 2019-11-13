@@ -5,7 +5,11 @@
  */
 package VideoClub;
 
+import java.awt.List;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -13,8 +17,7 @@ import javax.swing.JFrame;
  * @author arouven
  */
 public class CustomerForm extends javax.swing.JFrame {
-
-    public static int i = 0;
+    public static ArrayList<Customer> custArray = new ArrayList<>();
     
     /**
      * Creates new form CustomerForm
@@ -49,10 +52,25 @@ public class CustomerForm extends javax.swing.JFrame {
         });
 
         readCustomerButton.setText("Read Customer");
+        readCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                readCustomerButtonActionPerformed(evt);
+            }
+        });
 
         updateCustomerButton.setText("Update Customer");
+        updateCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCustomerButtonActionPerformed(evt);
+            }
+        });
 
         deleteCustomerButton.setText("Delete Customer");
+        deleteCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCustomerButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Customer Form");
 
@@ -92,19 +110,32 @@ public class CustomerForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
-        
-      
-        Customer customer = new Customer();
         AddCustomerForm addCustomer = new AddCustomerForm();
         addCustomer.setVisible(true);
-        i ++;
+        
         
     }//GEN-LAST:event_addCustomerButtonActionPerformed
+
+    private void readCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readCustomerButtonActionPerformed
+        
+        custArray.forEach((cust) -> {
+            JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());
+        });
+    }//GEN-LAST:event_readCustomerButtonActionPerformed
+
+    private void deleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteCustomerButtonActionPerformed
+
+    private void updateCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateCustomerButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
