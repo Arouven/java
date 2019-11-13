@@ -18,7 +18,7 @@ public class Customer {//member parent class
     private int customerPhoneNo;   
     private boolean member;
         
-    public static int noOfCustomers;
+    public static int noOfCustomers = 0;//global var
     
     //constructor
     public Customer() {
@@ -63,8 +63,7 @@ public class Customer {//member parent class
     }
     public boolean isMember() {
         return member;
-    }
-    
+    }    
     
     //methods
     public static void addCustomer(){ 

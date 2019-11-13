@@ -17,13 +17,6 @@ public class Movie {
     private int noOfMovies;
     private double moviePrice = 100;
     private double percentageDiscount = 0;
-
-    //constructors
-//    public Movie() {
-//    }
-//    public Movie(double percentageDiscount) {
-//        this.percentageDiscount = percentageDiscount;
-//    }
     
     //setters
     public void setMovieId(int movieId) {

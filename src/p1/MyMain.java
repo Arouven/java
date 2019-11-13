@@ -24,10 +24,8 @@ public class MyMain {
         // instantiating objects
         Staff staff1 = new Staff();
         
-        Customer customer1 = new Customer();// for new customer //default will set address to the location of the videoclub    
-        
-        //Member memember1 = new Member();// for new customer member
-        
+        Customer customer1 = new Customer(); 
+                
         Movie movie1 = new Movie();
         
         Sales sales1 = new Sales();
@@ -90,7 +88,7 @@ public class MyMain {
         
         
         
-        JOptionPane.showMessageDialog(null, sales1.printReceipt());
+        JOptionPane.showMessageDialog(null, sales1.printReceipt(1));
         
          
         
