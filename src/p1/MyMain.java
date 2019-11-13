@@ -26,7 +26,7 @@ public class MyMain {
         
         Customer customer1 = new Customer();// for new customer //default will set address to the location of the videoclub    
         
-        Member memember1 = new Member();// for new customer member
+        //Member memember1 = new Member();// for new customer member
         
         Movie movie1 = new Movie();
         
@@ -69,7 +69,26 @@ public class MyMain {
         
         //creating new sales
         sales1.setSalesId(1);
-
+        sales1.customerObj.setCustomerName("john");
+        sales1.customerObj.setCustomerId(10);
+        sales1.customerObj.setCustomerAddress("this is my address");
+        sales1.customerObj.setCustomerEmail("this is my mail");
+        sales1.customerObj.setCustomerPhoneNo(57777777);
+        sales1.customerObj.setMember(false);
+         
+         
+        sales1.movieObj.setMovieId(100);
+        sales1.movieObj.setMovieName("john wick");
+        sales1.movieObj.setMovieType("action");
+        
+        
+        sales1.staffObj.setStaffId(1000);
+        sales1.staffObj.setStaffName("cina");
+        sales1.staffObj.setStaffName("my staff name");
+        sales1.staffObj.setStaffEmail("staff email");
+        sales1.staffObj.setStaffPhoneNo(5888888);
+        
+        
         
         JOptionPane.showMessageDialog(null, sales1.printReceipt());
         

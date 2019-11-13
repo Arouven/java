@@ -78,9 +78,9 @@ public class Movie {
 //    }
     
     //methods
-//    public void setMoviePriceForMember(){
-//        this.moviePrice -= (getMoviePrice() * (percentageDiscount / 100));
-//    }
+    public void setMoviePriceForMember(){
+        this.moviePrice -= (getMoviePrice() * (percentageDiscount / 100));
+    }
     public String displayMovieDetails(){
         return
                 "Movie Id is: " + getMovieId() + "\n" +

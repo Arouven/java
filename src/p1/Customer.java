@@ -11,12 +11,12 @@ package p1;
  */
 public class Customer {//member parent class
     //vars
-    protected int customerId;
-    protected String customerName;
-    protected String customerAddress;
-    protected String customerEmail;
-    protected int customerPhoneNo;   
-    protected boolean member;
+    private int customerId;
+    private String customerName;
+    private String customerAddress;
+    private String customerEmail;
+    private int customerPhoneNo;   
+    private boolean member;
         
     public static int noOfCustomers;
     

@@ -37,25 +37,13 @@ public class Sales {
     }
     public String printReceipt(){
         if(customerObj.isMember() == true){
+            movieObj.setPercentageDiscount(20);
+            movieObj.setMoviePriceForMember();
             
             noSalePerform ++;
             movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);
             
-            movieObj.setMoviePrice(movieObj.getMoviePrice() - (movieObj.getMoviePrice() * (movieObj.getPercentageDiscount() / 100))); 
-            
-            return
-                "receipt for: " + customerObj.getCustomerId() +"\n" +
-                "\t\tmr(s)" + customerObj.getCustomerName() +"\n\n" +
-                
-                "staff id: " + staffObj.getStaffId() +"\n" +
-                "\t\tperform by: " + staffObj.getStaffName() +"\n\n" +
-                
-                "movie id: " + movieObj.getMovieId() +"\n" +
-                "movie name: " + movieObj.getMovieName() +"\n" +
-                "price: " + movieObj.getMoviePrice() +"\n\n\n" +
-                
-                
-                "sales id: " + getSalesId();
+            //movieObj.setMoviePrice(movieObj.getMoviePrice() - (movieObj.getMoviePrice() * (movieObj.getPercentageDiscount() / 100))); 
             
             
         }
@@ -63,23 +51,25 @@ public class Sales {
             noSalePerform ++;
             movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);
             
-            return
-                "receipt for: " + customerObj.getCustomerId() +"\n" +
-                "\t\tmr(s)" + customerObj.getCustomerName() +"\n\n" +
-                
-                "staff id: " + staffObj.getStaffId() +"\n" +
-                "\t\tperform by: " + staffObj.getStaffName() +"\n\n" +
-                
-                "movie id: " + movieObj.getMovieId() +"\n" +
-                "movie name: " + movieObj.getMovieName() +"\n" +
-                "price: " + movieObj.getMoviePrice() +"\n\n\n" +
-                
-                
-                "sales id: " + getSalesId();
-            
-            
-            
         }
+            return
+                "Receipt for customer id: " + customerObj.getCustomerId() +"\n" +
+                "\t\tMr(s)" + customerObj.getCustomerName() + "\n\n" +
+                "\t\tMember " + customerObj.isMember() +"\n\n" +
+                
+                "Staff id: " + staffObj.getStaffId() + "\n" +
+                "\t\tPerform by: " + staffObj.getStaffName() + "\n\n" +
+                
+                "Movie id: " + movieObj.getMovieId() +"\n" +
+                "Movie name: " + movieObj.getMovieName() +"\n" +                    
+                "\t\tPercentage discount " + movieObj.getPercentageDiscount() +" %\n\n" +
+                "Price: " + movieObj.getMoviePrice() +"\n\n\n" +
+                
+                
+                "Sales id: " + getSalesId();
+            
+            
+        
         
     }
 }
