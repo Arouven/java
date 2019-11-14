@@ -5,10 +5,7 @@
  */
 package VideoClub;
 
-import java.awt.List;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -41,6 +38,7 @@ public class CustomerForm extends javax.swing.JFrame {
         updateCustomerButton = new javax.swing.JButton();
         deleteCustomerButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +49,7 @@ public class CustomerForm extends javax.swing.JFrame {
             }
         });
 
-        readCustomerButton.setText("Read Customer");
+        readCustomerButton.setText("Display all added customers");
         readCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 readCustomerButtonActionPerformed(evt);
@@ -74,28 +72,38 @@ public class CustomerForm extends javax.swing.JFrame {
 
         jLabel1.setText("Customer Form");
 
+        jButton1.setText("Main Menu");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(addCustomerButton)
+                .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(readCustomerButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(addCustomerButton)))
-                    .addComponent(deleteCustomerButton)
-                    .addComponent(updateCustomerButton))
-                .addContainerGap(95, Short.MAX_VALUE))
+                            .addComponent(readCustomerButton)
+                            .addComponent(deleteCustomerButton)
+                            .addComponent(updateCustomerButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(41, 41, 41)
+                .addGap(53, 53, 53)
                 .addComponent(addCustomerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(readCustomerButton)
@@ -103,7 +111,9 @@ public class CustomerForm extends javax.swing.JFrame {
                 .addComponent(updateCustomerButton)
                 .addGap(18, 18, 18)
                 .addComponent(deleteCustomerButton)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -112,12 +122,10 @@ public class CustomerForm extends javax.swing.JFrame {
     private void addCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerButtonActionPerformed
         AddCustomerForm addCustomer = new AddCustomerForm();
         addCustomer.setVisible(true);
-        
-        
     }//GEN-LAST:event_addCustomerButtonActionPerformed
 
     private void readCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readCustomerButtonActionPerformed
-        
+        //open jtable
         custArray.forEach((cust) -> {
             JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());
         });
@@ -170,6 +178,7 @@ public class CustomerForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustomerButton;
     private javax.swing.JButton deleteCustomerButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton readCustomerButton;
     private javax.swing.JButton updateCustomerButton;
