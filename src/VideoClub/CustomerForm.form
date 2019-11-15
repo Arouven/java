@@ -47,7 +47,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace pref="92" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,7 +82,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="readCustomerButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Display all added customers"/>
+        <Property name="text" type="java.lang.String" value="Search Customers"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="readCustomerButtonActionPerformed"/>

@@ -49,7 +49,7 @@ public class CustomerForm extends javax.swing.JFrame {
             }
         });
 
-        readCustomerButton.setText("Display all added customers");
+        readCustomerButton.setText("Search Customers");
         readCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 readCustomerButtonActionPerformed(evt);
@@ -96,7 +96,7 @@ public class CustomerForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,9 +125,12 @@ public class CustomerForm extends javax.swing.JFrame {
     }//GEN-LAST:event_addCustomerButtonActionPerformed
 
     private void readCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readCustomerButtonActionPerformed
-        //open jtable
+        String custNameToSearch = JOptionPane.showInputDialog("Search customer name: ");
         custArray.forEach((cust) -> {
-            JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());
+            String custName = cust.getCustomerName();
+            if(custNameToSearch.equals(custName)){
+                JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());
+            }
         });
     }//GEN-LAST:event_readCustomerButtonActionPerformed
 
@@ -136,7 +139,13 @@ public class CustomerForm extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteCustomerButtonActionPerformed
 
     private void updateCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerButtonActionPerformed
-        // TODO add your handling code here:
+        String custNameToSearch = JOptionPane.showInputDialog("Search customer name: ");
+        custArray.forEach((cust) -> {
+            String custName = cust.getCustomerName();
+            if(custNameToSearch.equals(custName)){
+                JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());
+            }
+        });
     }//GEN-LAST:event_updateCustomerButtonActionPerformed
 
     /**
