@@ -40,6 +40,11 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Main Menu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
         staffButton.setText("Staff");
+        staffButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                staffButtonActionPerformed(evt);
+            }
+        });
 
         customerButton.setText("Customer");
         customerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +109,12 @@ public class MainMenu extends javax.swing.JFrame {
         this.setVisible(false);
         new CustomerForm().setVisible(true);
     }//GEN-LAST:event_customerButtonActionPerformed
+
+    private void staffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffButtonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new StaffForm().setVisible(true);
+    }//GEN-LAST:event_staffButtonActionPerformed
 
     /**
      * @param args the command line arguments

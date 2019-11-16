@@ -59,6 +59,6 @@ public class Staff {
                 "Staff Name is: " + getStaffName() + "\n" +
                 "Staff Address is: " + getStaffAddress() + "\n" +
                 "Staff Email is: " + getStaffEmail() + "\n" +
-                "Staff Phone No. :" + getStaffPhoneNo();
+                "Staff Phone No. :" + getStaffPhoneNo() + "\n\n";
     }
 }
