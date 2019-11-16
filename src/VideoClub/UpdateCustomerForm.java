@@ -6,6 +6,7 @@
 package VideoClub;
 
 import static VideoClub.CustomerForm.custArray;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,7 +28,8 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
         customerAddress.setText("");
         customerEmail.setText("");
         customerPhoneNo.setText("");
-        member.setSelected(false);        
+        member.setSelected(false);      
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
     }
     
     public UpdateCustomerForm(int indexOfUpdate) {
@@ -40,7 +42,8 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
         customerAddress.setText(cust.getCustomerAddress());
         customerEmail.setText(cust.getCustomerEmail());
         customerPhoneNo.setText(Integer.toString(cust.getCustomerPhoneNo()));
-        member.setSelected(cust.isMember());        
+        member.setSelected(cust.isMember()); 
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -167,7 +170,6 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
-        // TODO add your handling code here:
          try{
             if(customerId.getText().isEmpty()){                
                 throw new Exception("Empty id");

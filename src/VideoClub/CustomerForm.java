@@ -5,7 +5,9 @@
  */
 package VideoClub;
 
+import java.awt.TextArea;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -22,6 +24,7 @@ public class CustomerForm extends javax.swing.JFrame {
     public CustomerForm() {
         initComponents();
         this.setTitle("Customer Form");
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -34,10 +37,11 @@ public class CustomerForm extends javax.swing.JFrame {
     private void initComponents() {
 
         addCustomerButton = new javax.swing.JButton();
-        readCustomerButton = new javax.swing.JButton();
+        displayAllCustomerButton = new javax.swing.JButton();
         updateCustomerButton = new javax.swing.JButton();
         deleteCustomerButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        mainMenuButton = new javax.swing.JButton();
+        searchCustomerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,10 +52,10 @@ public class CustomerForm extends javax.swing.JFrame {
             }
         });
 
-        readCustomerButton.setText("Search Customers");
-        readCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+        displayAllCustomerButton.setText("Display all customer");
+        displayAllCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                readCustomerButtonActionPerformed(evt);
+                displayAllCustomerButtonActionPerformed(evt);
             }
         });
 
@@ -69,10 +73,17 @@ public class CustomerForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Main Menu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        mainMenuButton.setText("Main Menu");
+        mainMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                mainMenuButtonActionPerformed(evt);
+            }
+        });
+
+        searchCustomerButton.setText("Search by Name");
+        searchCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchCustomerButtonActionPerformed(evt);
             }
         });
 
@@ -80,37 +91,37 @@ public class CustomerForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addCustomerButton)
-                .addGap(91, 91, 91))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(readCustomerButton)
-                            .addComponent(deleteCustomerButton)
-                            .addComponent(updateCustomerButton)))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addComponent(mainMenuButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(displayAllCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(searchCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(updateCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deleteCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
+                .addGap(38, 38, 38)
                 .addComponent(addCustomerButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(readCustomerButton)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayAllCustomerButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchCustomerButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(updateCustomerButton)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteCustomerButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(mainMenuButton)
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -121,38 +132,105 @@ public class CustomerForm extends javax.swing.JFrame {
         addCustomer.setVisible(true);
     }//GEN-LAST:event_addCustomerButtonActionPerformed
 
-    private void readCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readCustomerButtonActionPerformed
-        String custNameToSearch = JOptionPane.showInputDialog("Search customer name: ");
-        custArray.forEach((cust) -> {
-            String custName = cust.getCustomerName();
-            if(custNameToSearch.equals(custName)){
-                JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());
-            }
-        });
-    }//GEN-LAST:event_readCustomerButtonActionPerformed
+    private void displayAllCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAllCustomerButtonActionPerformed
+        TextArea cDetails = new TextArea();
+        String outputText = "";
+        outputText = custArray.stream().map((cust) -> cust.displayCustomerDetails()).reduce(outputText, String::concat);
+        cDetails.setText(outputText);
+        JOptionPane.showMessageDialog(this, cDetails, "Customer Detail", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_displayAllCustomerButtonActionPerformed
 
     private void deleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerButtonActionPerformed
-        // TODO add your handling code here:
+        String custNameToSearch = JOptionPane.showInputDialog("Search the customer(name) to delete: ");
+        if (custNameToSearch != null) {
+            int currentPosition = 0;        
+            for(Customer cust: custArray){
+                String custName = cust.getCustomerName();
+                if(custNameToSearch.equals(custName)){
+                    int descision = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this customer: " + custName + " ?","Delete Customer", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+
+                    if(descision == 0){
+                        custArray.remove(currentPosition);
+                        System.out.println("deleted");
+                        JOptionPane.showMessageDialog(this, custName + " was deleted.", "Customer Deleted", JOptionPane.DEFAULT_OPTION);
+                        return;//exit the button function
+                    }   
+                    else{
+                        System.out.println("do nothing");
+                    }
+                    break;
+                }
+                currentPosition ++;
+            }
+
+            System.out.println("current " + currentPosition);
+            System.out.println("size " + custArray.size());
+
+            if(currentPosition > custArray.size()-1){
+                JOptionPane.showMessageDialog(this, "Customer " + custNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else{
+            System.out.println("cancel is press.");
+        }
     }//GEN-LAST:event_deleteCustomerButtonActionPerformed
 
     private void updateCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCustomerButtonActionPerformed
         String custNameToSearch = JOptionPane.showInputDialog("Search the customer(name) to update: ");
-        int currentPosition = 0;
-        for(Customer cust: custArray){
-            String custName = cust.getCustomerName();
-            if(custNameToSearch.equals(custName)){
-                UpdateCustomerForm updateCustomer = new UpdateCustomerForm(currentPosition);
-                updateCustomer.setVisible(true);
-                System.out.println(currentPosition);
-                //JOptionPane.showMessageDialog(null, cust.displayCustomerDetails());                
+        if (custNameToSearch != null) {
+            int currentPosition = 0;
+            for(Customer cust : custArray){
+                String custName = cust.getCustomerName();
+                if(custNameToSearch.equals(custName)){
+                    UpdateCustomerForm updateCustomer = new UpdateCustomerForm(currentPosition);
+                    updateCustomer.setVisible(true);
+                    System.out.println(currentPosition);    
+                    return;
+                }
+                currentPosition ++;
+            }        
+            if(currentPosition > custArray.size()-1){
+                JOptionPane.showMessageDialog(this, "Customer " + custNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
-            currentPosition++;
+        }
+        else{
+            System.out.println("cancel is pressed.");
         }
     }//GEN-LAST:event_updateCustomerButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void mainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuButtonActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_mainMenuButtonActionPerformed
+
+    private void searchCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCustomerButtonActionPerformed
+        String custNameToSearch = JOptionPane.showInputDialog("Search the customer(name): ");
+        if (custNameToSearch != null) {
+            int currentPosition = 0;
+            for(Customer cust: custArray){
+                String custName = cust.getCustomerName();
+                if(custNameToSearch.equals(custName)){
+                    TextArea cDetails = new TextArea();
+                    cDetails.setText(cust.displayCustomerDetails());
+                    JOptionPane.showMessageDialog(this, cDetails, "Customer Detail", JOptionPane.INFORMATION_MESSAGE);
+
+                    return;
+                }
+                currentPosition ++;
+            }
+
+            System.out.println("current " + currentPosition);
+            System.out.println("size " + custArray.size());
+
+            if(currentPosition > custArray.size()-1){
+                JOptionPane.showMessageDialog(this, "Customer " + custNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        else{
+            System.out.println("calcel is press");
+        }
+
+    }//GEN-LAST:event_searchCustomerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,8 +271,9 @@ public class CustomerForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCustomerButton;
     private javax.swing.JButton deleteCustomerButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton readCustomerButton;
+    private javax.swing.JButton displayAllCustomerButton;
+    private javax.swing.JButton mainMenuButton;
+    private javax.swing.JButton searchCustomerButton;
     private javax.swing.JButton updateCustomerButton;
     // End of variables declaration//GEN-END:variables
 }

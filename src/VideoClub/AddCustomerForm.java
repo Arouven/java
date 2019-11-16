@@ -5,6 +5,7 @@
  */
 package VideoClub;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,7 @@ public class AddCustomerForm extends javax.swing.JFrame {
     public AddCustomerForm() {
         this.setTitle("Add New Customer");
         initComponents();
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
