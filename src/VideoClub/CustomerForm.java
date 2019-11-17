@@ -5,8 +5,9 @@
  */
 package VideoClub;
 
+import static VideoClub.MainMenu.custArray;
+
 import java.awt.TextArea;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,6 @@ import javax.swing.JOptionPane;
  * @author arouven
  */
 public class CustomerForm extends javax.swing.JFrame {
-    public static ArrayList<Customer> custArray = new ArrayList<>();
     
     /**
      * Creates new form CustomerForm

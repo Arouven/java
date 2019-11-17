@@ -5,23 +5,42 @@
  */
 package VideoClub;
 
-//import static VideoClub.MainMenu.stArray;
-
-import javax.swing.JOptionPane;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arouven
  */
-public class AddStaffForm extends javax.swing.JFrame {
+public class UpdateStaffForm extends javax.swing.JFrame {
 
+    private int indexOfUpdate;
+    
     /**
-     * Creates new form AddStaffForm
+     * Creates new form UpdateStaff
      */
-    public AddStaffForm() {
-        this.setTitle("Add New Staff");
+    public UpdateStaffForm() {
+        this.setTitle("Update Staff");
         initComponents();
+        staffId.setText("");
+        staffName.setText("");
+        staffAddress.setText("");
+        staffEmail.setText("");
+        staffPhoneNo.setText("");   
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+    }
+    
+    public UpdateStaffForm(int indexOfUpdate) {
+        this.indexOfUpdate = indexOfUpdate;
+        this.setTitle("Update Staff");
+        initComponents();
+        Staff st = MainMenu.stArray.get(indexOfUpdate);       
+        staffId.setText(Integer.toString(st.getStaffId()));
+        staffName.setText(st.getStaffName());
+        staffAddress.setText(st.getStaffAddress());
+        staffEmail.setText(st.getStaffEmail());
+        staffPhoneNo.setText(Integer.toString(st.getStaffPhoneNo()));
         setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }
@@ -35,41 +54,41 @@ public class AddStaffForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        addStaffButton = new javax.swing.JButton();
+        UpdateButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        staffId = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        staffName = new javax.swing.JTextField();
         staffAddress = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         staffEmail = new javax.swing.JTextField();
         staffPhoneNo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        staffName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        staffId = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        staffFormButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        stFormBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        addStaffButton.setText("Add Staff");
-        addStaffButton.addActionListener(new java.awt.event.ActionListener() {
+        UpdateButton.setText("Update");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addStaffButtonActionPerformed(evt);
+                UpdateButtonActionPerformed(evt);
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Staff", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Update Staff", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        jLabel3.setText("Staff Address:");
+        jLabel1.setText("Staff ID:");
 
-        jLabel5.setText("Staff Phone No.:");
+        jLabel2.setText("Staff Name: ");
+
+        jLabel5.setText("Staff Phone no.:");
 
         jLabel4.setText("Staff E-mail:");
 
-        jLabel1.setText("Staff Name:");
-
-        jLabel2.setText("Staff ID:");
+        jLabel3.setText("Staff Address:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,31 +97,31 @@ public class AddStaffForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(30, 30, 30)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(staffId, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(staffName)
-                    .addComponent(staffAddress)
                     .addComponent(staffEmail)
-                    .addComponent(staffPhoneNo))
+                    .addComponent(staffAddress)
+                    .addComponent(staffName)
+                    .addComponent(staffPhoneNo)
+                    .addComponent(staffId))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(staffId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel1)
+                    .addComponent(staffId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(staffName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(staffAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,19 +130,24 @@ public class AddStaffForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(staffEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(staffPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(132, 132, 132))
         );
 
-        exitButton.setText("Exit");
-
-        stFormBtn.setText("Staff Form");
-        stFormBtn.addActionListener(new java.awt.event.ActionListener() {
+        staffFormButton.setText("Staff Form");
+        staffFormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stFormBtnActionPerformed(evt);
+                staffFormButtonActionPerformed(evt);
+            }
+        });
+
+        exitButton.setText("Exit");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -132,35 +156,34 @@ public class AddStaffForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(stFormBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(addStaffButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(staffFormButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addStaffButton)
-                    .addComponent(exitButton)
-                    .addComponent(stFormBtn))
+                    .addComponent(UpdateButton)
+                    .addComponent(staffFormButton)
+                    .addComponent(exitButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStaffButtonActionPerformed
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         try{
             if(staffId.getText().isEmpty()){
                 throw new Exception("Empty id");
@@ -184,34 +207,30 @@ public class AddStaffForm extends javax.swing.JFrame {
                 String stEmail = staffEmail.getText();
                 int stPhoneNo = Integer.parseInt(staffPhoneNo.getText());
 
-                Staff mySt = new Staff();
+                Staff mySt = MainMenu.stArray.get(indexOfUpdate);
                 mySt.setStaffId(stId);
                 mySt.setStaffName(stName);
                 mySt.setStaffAddress(stAddress);
                 mySt.setStaffEmail(stEmail);
                 mySt.setStaffPhoneNo(stPhoneNo);
-                MainMenu.stArray.add(mySt);
-                JOptionPane.showMessageDialog(this, "New staff added: " + stName, "Staff Added", JOptionPane.DEFAULT_OPTION);
-
-                staffId.setText("");
-                staffName.setText("");
-                staffAddress.setText("");
-                staffEmail.setText("");
-                staffPhoneNo.setText("");
-
+                
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(this, "Staff updated", "Staff updated", JOptionPane.DEFAULT_OPTION);
             }
-
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
-
             System.out.println(e);
         }
-    }//GEN-LAST:event_addStaffButtonActionPerformed
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
-    private void stFormBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stFormBtnActionPerformed
+    private void staffFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffFormButtonActionPerformed
         this.setVisible(false);
-    }//GEN-LAST:event_stFormBtnActionPerformed
+    }//GEN-LAST:event_staffFormButtonActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,26 +249,27 @@ public class AddStaffForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateStaffForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddStaffForm().setVisible(true);
+                new UpdateStaffForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addStaffButton;
+    private javax.swing.JButton UpdateButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -257,9 +277,9 @@ public class AddStaffForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton stFormBtn;
     private javax.swing.JTextField staffAddress;
     private javax.swing.JTextField staffEmail;
+    private javax.swing.JButton staffFormButton;
     private javax.swing.JTextField staffId;
     private javax.swing.JTextField staffName;
     private javax.swing.JTextField staffPhoneNo;

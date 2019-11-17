@@ -5,7 +5,7 @@
  */
 package VideoClub;
 
-import static VideoClub.CustomerForm.custArray;
+//import static VideoClub.MainMenu.custArray;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -37,7 +37,7 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
         this.indexOfUpdate = indexOfUpdate;
         this.setTitle("Update Customer");
         initComponents();
-        Customer cust = custArray.get(indexOfUpdate);       
+        Customer cust = MainMenu.custArray.get(indexOfUpdate);       
         customerId.setText(Integer.toString(cust.getCustomerId()));
         customerName.setText(cust.getCustomerName());
         customerAddress.setText(cust.getCustomerAddress());
@@ -229,7 +229,7 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
                 int custPhoneNo = Integer.parseInt(customerPhoneNo.getText());
                 boolean mem = member.isSelected();
                 
-                Customer myCust = custArray.get(indexOfUpdate); 
+                Customer myCust = MainMenu.custArray.get(indexOfUpdate); 
                 //Customer myCust = new Customer();
                 myCust.setCustomerId(custId);
                 myCust.setCustomerName(custName);
@@ -238,7 +238,7 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
                 myCust.setCustomerPhoneNo(custPhoneNo);
                 myCust.setMember(mem);
                 
-                CustomerForm.custArray.add(myCust);
+                //MainMenu.custArray.add(myCust);
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(this, "Customer updated", "Customer updated", JOptionPane.DEFAULT_OPTION);
             }            

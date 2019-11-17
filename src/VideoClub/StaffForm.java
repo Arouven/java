@@ -6,7 +6,6 @@
 package VideoClub;
 
 import java.awt.TextArea;
-import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -15,7 +14,6 @@ import javax.swing.JOptionPane;
  * @author arouven
  */
 public class StaffForm extends javax.swing.JFrame {
-    public static ArrayList<Staff> staffArray = new ArrayList<>();
     
     /**
      * Creates new form StaffForm
@@ -169,7 +167,7 @@ public class StaffForm extends javax.swing.JFrame {
     private void displayAllStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAllStaffButtonActionPerformed
         TextArea stDetails = new TextArea();
         String outputText = "";
-        outputText = staffArray.stream().map((st) -> st.displayStaffDetails()).reduce(outputText, String::concat);
+        outputText = MainMenu.stArray.stream().map((st) -> st.displayStaffDetails()).reduce(outputText, String::concat);
         stDetails.setText(outputText);
         JOptionPane.showMessageDialog(this, stDetails, "Staff Detail", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllStaffButtonActionPerformed
@@ -178,7 +176,7 @@ public class StaffForm extends javax.swing.JFrame {
         String stNameToSearch = JOptionPane.showInputDialog(this, "Search the staff(name): ", "Staff Name", JOptionPane.INFORMATION_MESSAGE);
         if (stNameToSearch != null) {
             int currentPosition = 0;
-            for(Staff st: staffArray){
+            for(Staff st: MainMenu.stArray){
                 String stName = st.getStaffName();
                 if(stNameToSearch.equals(stName)){
                     TextArea stDetails = new TextArea();
@@ -191,9 +189,9 @@ public class StaffForm extends javax.swing.JFrame {
             }
 
             System.out.println("current " + currentPosition);
-            System.out.println("size " + staffArray.size());
+            System.out.println("size " + MainMenu.stArray.size());
 
-            if(currentPosition > staffArray.size()-1){
+            if(currentPosition > MainMenu.stArray.size()-1){
                 JOptionPane.showMessageDialog(this, "Staff " + stNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -206,7 +204,7 @@ public class StaffForm extends javax.swing.JFrame {
         String stNameToSearch = JOptionPane.showInputDialog(this, "Search the staff(name) to update: ", "Staff Name", JOptionPane.INFORMATION_MESSAGE);
         if (stNameToSearch != null) {
             int currentPosition = 0;
-            for(Staff st : staffArray){
+            for(Staff st : MainMenu.stArray){
                 String stName = st.getStaffName();
                 if(stNameToSearch.equals(stName)){
                     UpdateStaffForm updateStaff = new UpdateStaffForm(currentPosition);
@@ -216,7 +214,7 @@ public class StaffForm extends javax.swing.JFrame {
                 }
                 currentPosition ++;
             }
-            if(currentPosition > staffArray.size()-1){
+            if(currentPosition > MainMenu.stArray.size()-1){
                 JOptionPane.showMessageDialog(this, "Staff " + stNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -229,13 +227,13 @@ public class StaffForm extends javax.swing.JFrame {
         String stNameToSearch = JOptionPane.showInputDialog(this, "Search the staff(name) to delete: ", "Staff Name", JOptionPane.INFORMATION_MESSAGE);
         if (stNameToSearch != null) {
             int currentPosition = 0;
-            for(Staff st: staffArray){
+            for(Staff st: MainMenu.stArray){
                 String stName = st.getStaffName();
                 if(stNameToSearch.equals(stName)){
                     int descision = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this staff: " + stName + " ?","Delete Staff", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                     if(descision == 0){
-                        staffArray.remove(currentPosition);
+                        MainMenu.stArray.remove(currentPosition);
                         System.out.println("deleted");
                         JOptionPane.showMessageDialog(this, stName + " was deleted.", "Staff Deleted", JOptionPane.DEFAULT_OPTION);
                         return;//exit the button function
@@ -249,9 +247,9 @@ public class StaffForm extends javax.swing.JFrame {
             }
 
             System.out.println("current " + currentPosition);
-            System.out.println("size " + staffArray.size());
+            System.out.println("size " + MainMenu.stArray.size());
 
-            if(currentPosition > staffArray.size()-1){
+            if(currentPosition > MainMenu.stArray.size()-1){
                 JOptionPane.showMessageDialog(this, "Staff " + stNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }
