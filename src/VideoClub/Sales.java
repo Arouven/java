@@ -37,7 +37,7 @@ public class Sales {
     public String totalSales(){           
         return "total sales for the day is " + noSalePerform;        
     }
-    public String printReceipt(int noMoviesBought){
+    public String performSales(int noMoviesBought){
         if(customerObj.isMember() == true){//default for all members is 20%
             movieObj.setPercentageDiscount(20);
             movieObj.setMoviePriceForMember();
@@ -50,7 +50,7 @@ public class Sales {
             movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);            
         }
         
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");  
         Date date = new Date();  
         System.out.println(formatter.format(date));  
     

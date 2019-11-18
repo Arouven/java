@@ -67,7 +67,7 @@ public class Movie {
 
     
     //methods
-    public void setMoviePriceForMember(){
+    public void setMoviePriceForMember(){//call is sales class
         this.moviePrice -= (getMoviePrice() * (percentageDiscount / 100));
     }
     public String displayMovieDetails(){

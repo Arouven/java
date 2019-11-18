@@ -92,7 +92,7 @@ public class MyMain {
         
         
         
-        JOptionPane.showMessageDialog(null, sales1.printReceipt(1));
+        JOptionPane.showMessageDialog(null, sales1.performSales(1));
         
          
         
