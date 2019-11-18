@@ -54,7 +54,6 @@ public class Staff {
     //methods
     public String displayStaffDetails(){
         return 
-                "Staff details is: \n" +
                 "Staff id is: " + getStaffId() + "\n" +
                 "Staff Name is: " + getStaffName() + "\n" +
                 "Staff Address is: " + getStaffAddress() + "\n" +

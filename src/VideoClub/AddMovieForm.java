@@ -33,7 +33,7 @@ public class AddMovieForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        UpdateButton = new javax.swing.JButton();
+        AddButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         movieId = new javax.swing.JTextField();
@@ -48,10 +48,10 @@ public class AddMovieForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        UpdateButton.setText("Add");
-        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+        AddButton.setText("Add");
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UpdateButtonActionPerformed(evt);
+                AddButtonActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class AddMovieForm extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(staffFormButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -143,7 +143,7 @@ public class AddMovieForm extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpdateButton)
+                    .addComponent(AddButton)
                     .addComponent(staffFormButton)
                     .addComponent(exitButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -152,7 +152,7 @@ public class AddMovieForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         try{
             if(movieId.getText().isEmpty()){
                 throw new Exception("Empty id");
@@ -190,7 +190,7 @@ public class AddMovieForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(e);
         }
-    }//GEN-LAST:event_UpdateButtonActionPerformed
+    }//GEN-LAST:event_AddButtonActionPerformed
 
     private void staffFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffFormButtonActionPerformed
         this.setVisible(false);
@@ -236,7 +236,7 @@ public class AddMovieForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton UpdateButton;
+    private javax.swing.JButton AddButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

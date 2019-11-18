@@ -61,8 +61,18 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         movieButton.setText("Movie");
+        movieButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                movieButtonActionPerformed(evt);
+            }
+        });
 
         salesButton.setText("Sales");
+        salesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salesButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,6 +147,14 @@ public class MainMenu extends javax.swing.JFrame {
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void salesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesButtonActionPerformed
+        new SalesForm().setVisible(true);
+    }//GEN-LAST:event_salesButtonActionPerformed
+
+    private void movieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movieButtonActionPerformed
+        new MovieForm().setVisible(true);
+    }//GEN-LAST:event_movieButtonActionPerformed
 
     /**
      * @param args the command line arguments

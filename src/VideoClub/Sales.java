@@ -5,6 +5,9 @@
  */
 package VideoClub;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author arouven
@@ -46,7 +49,15 @@ public class Sales {
             noSalePerform += noMoviesBought;
             movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);            
         }
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+        Date date = new Date();  
+        System.out.println(formatter.format(date));  
+    
         return
+            "Sales id: " + getSalesId() + "\n"+
+            formatter.format(date) + "\n\n" +                
+                
             "Receipt for customer id: " + customerObj.getCustomerId() +"\n" +
             "\t\tMr(s)" + customerObj.getCustomerName() + "\n\n" +
             "\t\tMember " + customerObj.isMember() +"\n\n" +
@@ -57,9 +68,6 @@ public class Sales {
             "Movie id: " + movieObj.getMovieId() +"\n" +
             "Movie name: " + movieObj.getMovieName() +"\n" +                    
             "\t\tPercentage discount " + movieObj.getPercentageDiscount() +" %\n\n" +
-            "Price: " + movieObj.getMoviePrice() +"\n\n\n" +
-
-
-            "Sales id: " + getSalesId();
+            "Price: " + movieObj.getMoviePrice() +"\n\n";
     }
 }
