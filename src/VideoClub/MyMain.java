@@ -106,7 +106,7 @@ public class MyMain {
         //at the end of the day display all customers added
         JOptionPane.showMessageDialog(null, displayAddedCustomers());
         
-        JOptionPane.showMessageDialog(null, sales1.totalSales());
+        //JOptionPane.showMessageDialog(null, sales1.totalSales());
     
         System.exit(0);
     }

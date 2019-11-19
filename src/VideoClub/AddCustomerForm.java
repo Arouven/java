@@ -5,7 +5,7 @@
  */
 package VideoClub;
 
-import static VideoClub.MainMenu.custArray;
+//import static VideoClub.MainMenu.custArray;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -202,7 +202,7 @@ public class AddCustomerForm extends javax.swing.JFrame {
                 myCust.setCustomerEmail(custEmail);
                 myCust.setCustomerPhoneNo(custPhoneNo);
                 myCust.setMember(mem);
-                custArray.add(myCust);
+                MainMenu.custArray.add(myCust);
                 JOptionPane.showMessageDialog(this, "New customer added: "+custName, "Customer Added", JOptionPane.DEFAULT_OPTION);
                 
                 customerId.setText("");

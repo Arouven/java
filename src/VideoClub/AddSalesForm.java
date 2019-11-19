@@ -5,6 +5,7 @@
  */
 package VideoClub;
 
+import java.awt.TextArea;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -74,12 +75,10 @@ public class AddSalesForm extends javax.swing.JFrame {
             customerName.setText("");
             member.setSelected(false);
            
-                    //break;
-            //String custNameToSearch = JOptionPane.showInputDialog(this, e, "error", JOptionPane.INFORMATION_MESSAGE);
+            
             JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.ERROR_MESSAGE);
-            //break;
-            //dispose();
-            System.exit(0);
+            
+            
         }
         if(member.isSelected() == true){
             percentageDiscount.setText("20.0");
@@ -355,15 +354,53 @@ public class AddSalesForm extends javax.swing.JFrame {
                 mySal.customerObj.setCustomerId(custId);
                 mySal.customerObj.setCustomerName(custName);
                 mySal.customerObj.setMember(mem);
-                mySal.movieObj.setPercentageDiscount(percentDisc);
-                String performSales = mySal.performSales(boughtMovNo);
+                if (mem == true){
+                    mySal.movieObj.setPercentageDiscount(percentDisc);
+                }
                 
                 
-                MainMenu.slArray.add(mySal);
+                String performSales = "";
+                for (Movie m : MainMenu.movArray){//if movie registered in array
+                    if(m.getMovieId() == movId){
+                        performSales = mySal.performSales(boughtMovNo);
+                        MainMenu.slArray.add(mySal);
+                    }
+                }
+                
                 this.setVisible(false);
-                JOptionPane.showMessageDialog(this, performSales, "Sale receipt", JOptionPane.DEFAULT_OPTION);
+                
+                
+                //for updating the array
+                int movIDToSearch = movId;
+                int currentPosition = 0;
+                for(Movie mov: MainMenu.movArray){
+                    int movgetId = mov.getMovieId();
+                    if(movIDToSearch == movgetId){
+                        System.out.println("found match. movIDToSearch:"+movIDToSearch+"\tmovgetId:"+movgetId);
+                        //update movie array in main
+                        Movie toUpdate = MainMenu.movArray.get(currentPosition);
+                        if(toUpdate.getNoOfMovies() <= 0){
+                            JOptionPane.showMessageDialog(this, "Movie " + toUpdate.getMovieName() + ".\nYou have " + toUpdate.getNoOfMovies() + " remaining", "Stock!!!", JOptionPane.ERROR_MESSAGE);                
+                            return;
+                        }
+                        else{
+                            int remainingMovies = toUpdate.getNoOfMovies()-boughtMovNo;
+                            toUpdate.setNoOfMovies(remainingMovies);   
+                            System.out.println("updated");
+                            JOptionPane.showMessageDialog(this, performSales, "Sale receipt", JOptionPane.DEFAULT_OPTION);
+                            return;
+                        }
+                    }
+                    currentPosition ++;
+                }
+
+                System.out.println("current " + currentPosition);
+                System.out.println("size " + MainMenu.movArray.size());
 
                 
+                if(currentPosition > MainMenu.movArray.size()-1){
+                    JOptionPane.showMessageDialog(this, "Movie " + movIDToSearch + " Not Found!\nAdd Movie to continue.", "Not Found", JOptionPane.ERROR_MESSAGE);
+                }
             }
         }
         catch(Exception e){

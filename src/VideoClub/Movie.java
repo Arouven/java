@@ -76,6 +76,6 @@ public class Movie {
                 "Movie Name: " + getMovieName() + "\n" +
                 "Movie Type: " + getMovieType() + "\n" +
                 "No Of Movies: " + getNoOfMovies() + "\n" +
-                "Movie Price: " + getMoviePrice();
+                "Movie Price: " + getMoviePrice() + "\n\n";
     }
 }

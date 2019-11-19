@@ -17,13 +17,14 @@ public class Sales {
     private int salesId;
     private String currentDate;
     
-    public static int noSalePerform = 0;//global var
+    private static int noSalePerform = 0;    
     
     //associative objects
     public Customer customerObj = new Customer();
     public Staff staffObj = new Staff();
     public Movie movieObj = new Movie();
 
+    
     //setters
     public void setSalesId(int salesId) {
         this.salesId = salesId;
@@ -40,9 +41,10 @@ public class Sales {
         return currentDate;
     }
     
+    
     //method    
-    public String totalSales(){           
-        return "total sales for the day is " + noSalePerform;        
+    public String totalSales(){
+        return "The total Movies sold is: " + Integer.toString(noSalePerform);
     }
     public String performSales(int noMoviesBought){
         if(customerObj.isMember() == true){//default for all members is 20%
@@ -56,7 +58,7 @@ public class Sales {
             noSalePerform += noMoviesBought;
             movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);            
         }
-        //var currentDate;
+        System.out.println("no of sales perform " + noSalePerform);
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");  
         Date date = new Date();  
         String x = formatter.format(date); 
@@ -65,7 +67,7 @@ public class Sales {
     }
     public String printReceipt(){
         return
-            "Sales id: " + getSalesId() + "\t"+ getCurrentDate() + "\n" +                
+            "Sales id: " + getSalesId() + "\t\t"+ getCurrentDate() + "\n" +                
                 
             "Receipt for customer id: " + customerObj.getCustomerId() +"\n" +
             "Mr(s)" + customerObj.getCustomerName() + "\n" +
