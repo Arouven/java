@@ -171,7 +171,7 @@ public class StaffForm extends javax.swing.JFrame {
         String outputText = "";
         outputText = MainMenu.stArray.stream().map((st) -> st.displayStaffDetails()).reduce(outputText, String::concat);
         stDetails.setText(outputText);
-        JOptionPane.showMessageDialog(this, stDetails, "Staff Detail", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, stDetails, "Staffs Details", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllStaffButtonActionPerformed
 
     private void searchStaffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStaffButtonActionPerformed

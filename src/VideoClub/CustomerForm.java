@@ -170,7 +170,7 @@ public class CustomerForm extends javax.swing.JFrame {
         String outputText = "";
         outputText = MainMenu.custArray.stream().map((cust) -> cust.displayCustomerDetails()).reduce(outputText, String::concat);
         cDetails.setText(outputText);
-        JOptionPane.showMessageDialog(this, cDetails, "Customer Detail", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, cDetails, "Customers Details", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllCustomerButtonActionPerformed
 
     private void deleteCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCustomerButtonActionPerformed

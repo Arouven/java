@@ -175,7 +175,7 @@ public class MovieForm extends javax.swing.JFrame {
         String outputText = "";
         outputText = MainMenu.movArray.stream().map((mov) -> mov.displayMovieDetails()).reduce(outputText, String::concat);
         mDetails.setText(outputText);
-        JOptionPane.showMessageDialog(this, mDetails, "Movie Detail", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, mDetails, "Movies Details", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllMovieButtonActionPerformed
 
     private void searchMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMovieButtonActionPerformed
