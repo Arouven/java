@@ -5,7 +5,6 @@
  */
 package VideoClub;
 
-import java.awt.TextArea;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -31,7 +30,6 @@ public class AddSalesForm extends javax.swing.JFrame {
                 Movie mov = MainMenu.movArray.get(lastMovieIndex);  
                 movieId.setText(Integer.toString(mov.getMovieId()));
                 movieName.setText(mov.getMovieName());
-                percentageDiscount.setText(Double.toString(mov.getPercentageDiscount()));
             }
 
             
@@ -64,7 +62,6 @@ public class AddSalesForm extends javax.swing.JFrame {
             
             movieId.setText("");
             movieName.setText("");
-            percentageDiscount.setText("");
 
    
             staffId.setText("");
@@ -80,24 +77,15 @@ public class AddSalesForm extends javax.swing.JFrame {
             
             
         }
-        if(member.isSelected() == true){
-            percentageDiscount.setText("20.0");
-        }
+   
         setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);   
         
-        checkActive();
+        
         
     }
    
-    private void checkActive(){
-        if(member.isSelected() == true){
-            percentageDiscount.setEditable(true);
-        }
-        else{
-            percentageDiscount.setEditable(false);
-        }
-    }
+  
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,7 +108,6 @@ public class AddSalesForm extends javax.swing.JFrame {
         staffId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         staffName = new javax.swing.JTextField();
-        member = new javax.swing.JCheckBox();
         salesId = new javax.swing.JTextField();
         movieId = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -129,8 +116,7 @@ public class AddSalesForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         customerName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        percentageDiscount = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        member = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -165,13 +151,6 @@ public class AddSalesForm extends javax.swing.JFrame {
 
         jLabel3.setText("Staff Name:");
 
-        member.setText("Member");
-        member.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                memberActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Movie ID:");
 
         jLabel1.setText("Sale ID:");
@@ -180,13 +159,7 @@ public class AddSalesForm extends javax.swing.JFrame {
 
         jLabel7.setText("Customer Name:");
 
-        percentageDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                percentageDiscountActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("Percentage Discount:");
+        member.setText("Member");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -195,9 +168,6 @@ public class AddSalesForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(member))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -207,11 +177,9 @@ public class AddSalesForm extends javax.swing.JFrame {
                             .addComponent(jLabel8)
                             .addComponent(jLabel1)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel7))
+                        .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(percentageDiscount, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(customerName, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(customerId, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(movieId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
@@ -219,7 +187,10 @@ public class AddSalesForm extends javax.swing.JFrame {
                             .addComponent(noOfMovies, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(staffId, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(staffName)
-                            .addComponent(salesId))))
+                            .addComponent(salesId)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(member)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -256,13 +227,9 @@ public class AddSalesForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(percentageDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(member)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -327,9 +294,6 @@ public class AddSalesForm extends javax.swing.JFrame {
             else if(customerName.getText().isEmpty()){
                 throw new Exception("Empty customer name");
             }
-            else if(percentageDiscount.getText().isEmpty()){
-                throw new Exception("Empty percentage");
-            }
             else{
                 int slId = Integer.parseInt(salesId.getText());
                 int movId = Integer.parseInt(movieId.getText());
@@ -339,7 +303,6 @@ public class AddSalesForm extends javax.swing.JFrame {
                 String stName = staffName.getText();
                 int custId = Integer.parseInt(customerId.getText());
                 String custName = customerName.getText();
-                double percentDisc = Double.parseDouble(percentageDiscount.getText()); 
                 boolean mem = member.isSelected();
                 
                 
@@ -355,7 +318,7 @@ public class AddSalesForm extends javax.swing.JFrame {
                 mySal.customerObj.setCustomerName(custName);
                 mySal.customerObj.setMember(mem);
                 if (mem == true){
-                    mySal.movieObj.setPercentageDiscount(percentDisc);
+                    System.out.println("mem set to true");
                 }
                 
                 
@@ -413,13 +376,7 @@ public class AddSalesForm extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberActionPerformed
-        checkActive();        
-    }//GEN-LAST:event_memberActionPerformed
-
-    private void percentageDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_percentageDiscountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_percentageDiscountActionPerformed
+    
 
     /**
      * @param args the command line arguments
@@ -469,13 +426,11 @@ public class AddSalesForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox member;
     private javax.swing.JTextField movieId;
     private javax.swing.JTextField movieName;
     private javax.swing.JTextField noOfMovies;
-    private javax.swing.JTextField percentageDiscount;
     private javax.swing.JTextField salesId;
     private javax.swing.JButton staffFormButton;
     private javax.swing.JTextField staffId;
