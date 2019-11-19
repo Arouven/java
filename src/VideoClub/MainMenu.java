@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author arouven
  */
 public class MainMenu extends javax.swing.JFrame {
-    //delete sales buttons
+    
     public static ArrayList<Customer> custArray = new ArrayList<>();
     public static ArrayList<Staff> stArray = new ArrayList<>();
     public static ArrayList<Movie> movArray = new ArrayList<>();

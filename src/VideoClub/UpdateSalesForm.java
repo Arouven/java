@@ -318,7 +318,15 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                 String performSales = "";
                 for (Movie m : MainMenu.movArray){//if movie registered in array
                     if(m.getMovieId() == movId){
-                        performSales = mySal.performSales(boughtMovNo);                        
+                        if(m.getNoOfMovies() >= boughtMovNo){
+                            System.out.println("obj"+m.getNoOfMovies());
+                            System.out.println("bought"+boughtMovNo);
+                            performSales = mySal.performSales(boughtMovNo);                            
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(this, "Not enough in stock: "+m.getNoOfMovies(), "Error", JOptionPane.ERROR_MESSAGE);
+                            return;
+                        }
                     }
                 }
                 

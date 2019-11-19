@@ -207,13 +207,19 @@ public class SalesForm extends javax.swing.JFrame {
                     int descision = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this sale: " + toIntId + " ?","Delete Sale", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                     if(descision == 0){
+                        int boughtMov = sl.movieObj.getNoOfMovies();
+                        for(Movie m: MainMenu.movArray){
+                            if(m.getMovieId() == sl.movieObj.getMovieId()){
+                                m.setNoOfMovies(m.getNoOfMovies() + boughtMov);
+                                
+                                MainMenu.slArray.remove(currentPosition);
+                                System.out.println("deleted");
+                                JOptionPane.showMessageDialog(this, toIntId + " was deleted.", "Sale Deleted", JOptionPane.DEFAULT_OPTION);
+                                return;//exit the button function
+                            }
+                        }
                         
                         
-                        
-                        MainMenu.slArray.remove(currentPosition);
-                        System.out.println("deleted");
-                        JOptionPane.showMessageDialog(this, toIntId + " was deleted.", "Sale Deleted", JOptionPane.DEFAULT_OPTION);
-                        return;//exit the button function
                     }
                     else{
                         System.out.println("do nothing");
