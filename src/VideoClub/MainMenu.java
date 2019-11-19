@@ -23,7 +23,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         this.setTitle("Video Club");
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);//center
     }
 
     /**

@@ -44,11 +44,13 @@ public class Sales {
     public String performSales(int noMoviesBought){
         if(customerObj.isMember() == true){//default for all members is 20%
             movieObj.setPercentageDiscount(20);
+            movieObj.setMoviePrice(100);
             movieObj.setMoviePriceForMember();
             
             movieObj.setNoOfMovies(noMoviesBought);
         }
         else{
+            movieObj.setMoviePrice(100);
             movieObj.setNoOfMovies(noMoviesBought);            
         }
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");  

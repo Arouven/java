@@ -205,7 +205,7 @@ public class UpdateCustomerForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
-         try{
+        try{
             if(customerId.getText().isEmpty()){                
                 throw new Exception("Empty id");
             }            
