@@ -31,8 +31,8 @@
                       <Component id="exitButton" min="-2" pref="130" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="staffFormButton" min="-2" pref="130" max="-2" attributes="0"/>
-                      <EmptySpace pref="107" max="32767" attributes="0"/>
-                      <Component id="AddButton" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <Component id="UpdateButton" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -46,7 +46,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="AddButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="UpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="staffFormButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -56,12 +56,20 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="AddButton">
+    <Component class="javax.swing.JButton" name="staffFormButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sale"/>
+        <Property name="text" type="java.lang.String" value="Sale Form"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="staffFormButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="UpdateButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UpdateButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="exitButton">
@@ -76,7 +84,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Update Sale">
+            <TitledBorder title="New Sale">
               <Font PropertyName="font" name="Dialog" size="24" style="0"/>
             </TitledBorder>
           </Border>
@@ -89,44 +97,32 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="movieName" alignment="1" max="32767" attributes="0"/>
-                              <Component id="noOfMovies" alignment="1" max="32767" attributes="0"/>
-                              <Component id="staffId" alignment="1" max="32767" attributes="0"/>
-                              <Component id="staffName" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="customerId" alignment="0" max="32767" attributes="0"/>
-                              <Component id="customerName" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Component id="member" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="movieId" alignment="0" max="32767" attributes="0"/>
+                              <Component id="percentageDiscount" alignment="1" max="32767" attributes="0"/>
+                              <Component id="customerName" alignment="1" max="32767" attributes="0"/>
+                              <Component id="customerId" alignment="1" max="32767" attributes="0"/>
+                              <Component id="movieId" alignment="1" pref="273" max="32767" attributes="0"/>
+                              <Component id="movieName" alignment="1" max="32767" attributes="0"/>
+                              <Component id="noOfMovies" alignment="1" max="32767" attributes="0"/>
+                              <Component id="staffId" alignment="1" max="32767" attributes="0"/>
+                              <Component id="staffName" alignment="0" max="32767" attributes="0"/>
                               <Component id="salesId" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -139,13 +135,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="salesId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="movieId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -178,19 +174,18 @@
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="percentageDiscount" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="member" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sale ID:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="salesId">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Movie Name: "/>
@@ -202,7 +197,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="No. Of Movies:"/>
+            <Property name="text" type="java.lang.String" value="No. Bought:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -219,12 +214,34 @@
         </Component>
         <Component class="javax.swing.JTextField" name="staffName">
         </Component>
+        <Component class="javax.swing.JCheckBox" name="member">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Member"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="memberActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="salesId">
+        </Component>
+        <Component class="javax.swing.JTextField" name="movieId">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Movie ID:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sale ID:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="customerId">
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="text" type="java.lang.String" value="Customer ID:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="customerId">
         </Component>
         <Component class="javax.swing.JTextField" name="customerName">
         </Component>
@@ -233,27 +250,14 @@
             <Property name="text" type="java.lang.String" value="Customer Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="member">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Member"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="percentageDiscount">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Movie ID:"/>
+            <Property name="text" type="java.lang.String" value="Percentage Discount:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="movieId">
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="staffFormButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Sale Form"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="staffFormButtonActionPerformed"/>
-      </Events>
-    </Component>
   </SubComponents>
 </Form>

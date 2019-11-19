@@ -6,6 +6,7 @@
 package VideoClub;
 
 import java.awt.TextArea;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,9 @@ public class SalesForm extends javax.swing.JFrame {
      */
     public SalesForm() {
         initComponents();
+        this.setTitle("Customer Form");
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -170,7 +174,7 @@ public class SalesForm extends javax.swing.JFrame {
     private void displayAllSalesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAllSalesButtonActionPerformed
         TextArea sDetails = new TextArea();
         String outputText = "";
-        //  outputText = MainMenu.slArray.stream().map((sl) -> sl.printReceipt(1)).reduce(outputText, String::concat);
+        outputText = MainMenu.slArray.stream().map((sl) -> sl.printReceipt()).reduce(outputText, String::concat);
         sDetails.setText(outputText);
         JOptionPane.showMessageDialog(this, sDetails, "Sale Detail", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllSalesButtonActionPerformed

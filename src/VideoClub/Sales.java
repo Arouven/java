@@ -15,6 +15,7 @@ import java.util.Date;
 public class Sales {
     //vars
     private int salesId;
+    private String currentDate;
     
     public static int noSalePerform = 0;//global var
     
@@ -27,11 +28,17 @@ public class Sales {
     public void setSalesId(int salesId) {
         this.salesId = salesId;
     }
+    public void setCurrentDate(String currentDate) {
+        this.currentDate = currentDate;
+    }
     
     //getters
     public int getSalesId() {
         return salesId;
-    }    
+    }   
+    public String getCurrentDate() {
+        return currentDate;
+    }
     
     //method    
     public String totalSales(){           
@@ -49,25 +56,27 @@ public class Sales {
             noSalePerform += noMoviesBought;
             movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);            
         }
-        
+        //var currentDate;
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");  
         Date date = new Date();  
-        System.out.println(formatter.format(date));  
-    
+        String x = formatter.format(date); 
+        setCurrentDate(x);
+        return printReceipt();        
+    }
+    public String printReceipt(){
         return
-            "Sales id: " + getSalesId() + "\n"+
-            formatter.format(date) + "\n\n" +                
+            "Sales id: " + getSalesId() + "\t"+ getCurrentDate() + "\n" +                
                 
             "Receipt for customer id: " + customerObj.getCustomerId() +"\n" +
-            "\t\tMr(s)" + customerObj.getCustomerName() + "\n\n" +
-            "\t\tMember " + customerObj.isMember() +"\n\n" +
+            "Mr(s)" + customerObj.getCustomerName() + "\n" +
+            "Member " + customerObj.isMember() +"\n" +
 
             "Staff id: " + staffObj.getStaffId() + "\n" +
-            "\t\tPerform by: " + staffObj.getStaffName() + "\n\n" +
+            "Perform by: " + staffObj.getStaffName() + "\n" +
 
             "Movie id: " + movieObj.getMovieId() +"\n" +
             "Movie name: " + movieObj.getMovieName() +"\n" +                    
-            "\t\tPercentage discount " + movieObj.getPercentageDiscount() +" %\n\n" +
+            "Percentage discount " + movieObj.getPercentageDiscount() +" %\n" +
             "Price: " + movieObj.getMoviePrice() +"\n\n";
     }
 }

@@ -5,7 +5,7 @@
  */
 package VideoClub;
 
-import static VideoClub.MainMenu.custArray;
+//import static VideoClub.MainMenu.custArray;
 
 import java.awt.TextArea;
 import javax.swing.JFrame;
@@ -166,7 +166,7 @@ public class CustomerForm extends javax.swing.JFrame {
     private void displayAllCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayAllCustomerButtonActionPerformed
         TextArea cDetails = new TextArea();
         String outputText = "";
-        outputText = custArray.stream().map((cust) -> cust.displayCustomerDetails()).reduce(outputText, String::concat);
+        outputText = MainMenu.custArray.stream().map((cust) -> cust.displayCustomerDetails()).reduce(outputText, String::concat);
         cDetails.setText(outputText);
         JOptionPane.showMessageDialog(this, cDetails, "Customer Detail", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllCustomerButtonActionPerformed
@@ -175,13 +175,13 @@ public class CustomerForm extends javax.swing.JFrame {
         String custNameToSearch = JOptionPane.showInputDialog(this, "Search the customer(name) to delete: ", "Customer Name", JOptionPane.INFORMATION_MESSAGE);
         if (custNameToSearch != null) {
             int currentPosition = 0;        
-            for(Customer cust: custArray){
+            for(Customer cust: MainMenu.custArray){
                 String custName = cust.getCustomerName();
                 if(custNameToSearch.equals(custName)){
                     int descision = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this customer: " + custName + " ?","Delete Customer", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                     if(descision == 0){
-                        custArray.remove(currentPosition);
+                        MainMenu.custArray.remove(currentPosition);
                         System.out.println("deleted");
                         JOptionPane.showMessageDialog(this, custName + " was deleted.", "Customer Deleted", JOptionPane.DEFAULT_OPTION);
                         return;//exit the button function
@@ -195,9 +195,9 @@ public class CustomerForm extends javax.swing.JFrame {
             }
 
             System.out.println("current " + currentPosition);
-            System.out.println("size " + custArray.size());
+            System.out.println("size " + MainMenu.custArray.size());
 
-            if(currentPosition > custArray.size()-1){
+            if(currentPosition > MainMenu.custArray.size()-1){
                 JOptionPane.showMessageDialog(this, "Customer " + custNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -210,7 +210,7 @@ public class CustomerForm extends javax.swing.JFrame {
         String custNameToSearch = JOptionPane.showInputDialog(this, "Search the customer(name) to update: ", "Customer Name", JOptionPane.INFORMATION_MESSAGE);
         if (custNameToSearch != null) {
             int currentPosition = 0;
-            for(Customer cust : custArray){
+            for(Customer cust : MainMenu.custArray){
                 String custName = cust.getCustomerName();
                 if(custNameToSearch.equals(custName)){
                     UpdateCustomerForm updateCustomer = new UpdateCustomerForm(currentPosition);
@@ -220,7 +220,7 @@ public class CustomerForm extends javax.swing.JFrame {
                 }
                 currentPosition ++;
             }        
-            if(currentPosition > custArray.size()-1){
+            if(currentPosition > MainMenu.custArray.size()-1){
                 JOptionPane.showMessageDialog(this, "Customer " + custNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -237,7 +237,7 @@ public class CustomerForm extends javax.swing.JFrame {
         String custNameToSearch = JOptionPane.showInputDialog(this, "Search the customer(name): ", "Customer Name", JOptionPane.INFORMATION_MESSAGE);
         if (custNameToSearch != null) {
             int currentPosition = 0;
-            for(Customer cust: custArray){
+            for(Customer cust: MainMenu.custArray){
                 String custName = cust.getCustomerName();
                 if(custNameToSearch.equals(custName)){
                     TextArea cDetails = new TextArea();
@@ -250,9 +250,9 @@ public class CustomerForm extends javax.swing.JFrame {
             }
 
             System.out.println("current " + currentPosition);
-            System.out.println("size " + custArray.size());
+            System.out.println("size " + MainMenu.custArray.size());
 
-            if(currentPosition > custArray.size()-1){
+            if(currentPosition > MainMenu.custArray.size()-1){
                 JOptionPane.showMessageDialog(this, "Customer " + custNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }

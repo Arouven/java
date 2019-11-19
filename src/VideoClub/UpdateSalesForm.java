@@ -5,6 +5,7 @@
  */
 package VideoClub;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,16 +14,47 @@ import javax.swing.JOptionPane;
  */
 public class UpdateSalesForm extends javax.swing.JFrame {
 
+    private int indexOfUpdate;
+    
+
+    public UpdateSalesForm() {
+        this.setTitle("Update Sale");
+        initComponents(); 
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+    }
+    
+    public UpdateSalesForm(int indexOfUpdate) {
+        this.indexOfUpdate = indexOfUpdate;
+        this.setTitle("Update Staff");
+        initComponents();
+        Sales sl = MainMenu.slArray.get(indexOfUpdate); 
+        salesId.setText(Integer.toString(sl.getSalesId()));        
+        movieId.setText(Integer.toString(sl.movieObj.getMovieId()));
+        movieName.setText(sl.movieObj.getMovieName());
+        //noOfMovies.setText(Integer.toString(sl.movieObj.()));
+ 
+        staffId.setText(Integer.toString(sl.staffObj.getStaffId()));
+        staffName.setText(sl.staffObj.getStaffName());
+        
+        
+        setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+    }
+    
     /**
      * Creates new form UpdateSalesForm
      */
-    public UpdateSalesForm() {
-        initComponents();
-    }
-    public UpdateSalesForm(int mmm) {
-        initComponents();
-    }
 
+    private void checkActive(){
+        if(member.isSelected() == true){
+            percentageDiscount.setEditable(true);
+        }
+        else{
+            percentageDiscount.setEditable(false);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,11 +64,10 @@ public class UpdateSalesForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        AddButton = new javax.swing.JButton();
+        staffFormButton = new javax.swing.JButton();
+        UpdateButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        salesId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         movieName = new javax.swing.JTextField();
         noOfMovies = new javax.swing.JTextField();
@@ -45,21 +76,31 @@ public class UpdateSalesForm extends javax.swing.JFrame {
         staffId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         staffName = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        member = new javax.swing.JCheckBox();
+        salesId = new javax.swing.JTextField();
+        movieId = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         customerId = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         customerName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        member = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
-        movieId = new javax.swing.JTextField();
-        staffFormButton = new javax.swing.JButton();
+        percentageDiscount = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        AddButton.setText("Sale");
-        AddButton.addActionListener(new java.awt.event.ActionListener() {
+        staffFormButton.setText("Sale Form");
+        staffFormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonActionPerformed(evt);
+                staffFormButtonActionPerformed(evt);
+            }
+        });
+
+        UpdateButton.setText("Update");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
             }
         });
 
@@ -70,25 +111,32 @@ public class UpdateSalesForm extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Update Sale", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
-
-        jLabel1.setText("Sale ID:");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "New Sale", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
         jLabel2.setText("Movie Name: ");
 
-        jLabel4.setText("No. Of Movies:");
+        jLabel4.setText("No. Bought:");
 
         jLabel5.setText("Staff ID:");
 
         jLabel3.setText("Staff Name:");
 
+        member.setText("Member");
+        member.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Movie ID:");
+
+        jLabel1.setText("Sale ID:");
+
         jLabel6.setText("Customer ID:");
 
         jLabel7.setText("Customer Name:");
 
-        member.setText("Member");
-
-        jLabel8.setText("Movie ID:");
+        jLabel9.setText("Percentage Discount:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,36 +145,30 @@ public class UpdateSalesForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(movieName, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(noOfMovies, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(staffId, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(staffName)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerId)
-                            .addComponent(customerName)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(member))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel8))
-                        .addGap(80, 80, 80)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(movieId)
+                            .addComponent(percentageDiscount, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(customerName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(customerId, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(movieId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                            .addComponent(movieName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(noOfMovies, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(staffId, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(staffName)
                             .addComponent(salesId))))
                 .addContainerGap())
         );
@@ -134,12 +176,12 @@ public class UpdateSalesForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(salesId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(salesId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(movieId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(movieId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(movieName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,15 +207,13 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                     .addComponent(customerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(member))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(percentageDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(12, 12, 12)
+                .addComponent(member)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        staffFormButton.setText("Sale Form");
-        staffFormButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                staffFormButtonActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,8 +227,8 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                         .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(staffFormButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                        .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(UpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,7 +238,7 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddButton)
+                    .addComponent(UpdateButton)
                     .addComponent(staffFormButton)
                     .addComponent(exitButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -207,7 +247,11 @@ public class UpdateSalesForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+    private void staffFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffFormButtonActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_staffFormButtonActionPerformed
+
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
         try{
             if(salesId.getText().isEmpty()){
                 throw new Exception("Empty sale id");
@@ -231,7 +275,10 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                 throw new Exception("Empty customer id");
             }
             else if(customerName.getText().isEmpty()){
-                throw new Exception("Empty customer name");
+                throw new Exception("Empty customer name");     
+            }
+            else if(percentageDiscount.getText().isEmpty()){
+                throw new Exception("Empty percentage");
             }
             else{
                 int slId = Integer.parseInt(salesId.getText());
@@ -242,9 +289,10 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                 String stName = staffName.getText();
                 int custId = Integer.parseInt(customerId.getText());
                 String custName = customerName.getText();
+                double percentDisc = Double.parseDouble(percentageDiscount.getText());
                 boolean mem = member.isSelected();
 
-                Sales mySal = new Sales();
+                Sales mySal = MainMenu.slArray.get(indexOfUpdate);  
                 mySal.setSalesId(slId);
                 mySal.movieObj.setMovieId(movId);
                 mySal.movieObj.setMovieName(movName);
@@ -255,27 +303,29 @@ public class UpdateSalesForm extends javax.swing.JFrame {
                 mySal.customerObj.setCustomerId(custId);
                 mySal.customerObj.setCustomerName(custName);
                 mySal.customerObj.setMember(mem);
-                mySal.performSales(boughtMovNo);
+                mySal.movieObj.setPercentageDiscount(percentDisc);
+                String performSales = mySal.performSales(boughtMovNo);
 
-                MainMenu.slArray.add(mySal);
-                JOptionPane.showMessageDialog(this, "New sale perform! ", "Sale performed", JOptionPane.DEFAULT_OPTION);
-
+                //MainMenu.slArray.add(mySal);
                 this.setVisible(false);
+                JOptionPane.showMessageDialog(this, performSales, "Sale updated", JOptionPane.DEFAULT_OPTION);
+
+              
             }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
             System.out.println(e);
         }
-    }//GEN-LAST:event_AddButtonActionPerformed
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void staffFormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffFormButtonActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_staffFormButtonActionPerformed
+    private void memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberActionPerformed
+        checkActive();
+    }//GEN-LAST:event_memberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,7 +363,7 @@ public class UpdateSalesForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddButton;
+    private javax.swing.JButton UpdateButton;
     private javax.swing.JTextField customerId;
     private javax.swing.JTextField customerName;
     private javax.swing.JButton exitButton;
@@ -325,11 +375,13 @@ public class UpdateSalesForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox member;
     private javax.swing.JTextField movieId;
     private javax.swing.JTextField movieName;
     private javax.swing.JTextField noOfMovies;
+    private javax.swing.JTextField percentageDiscount;
     private javax.swing.JTextField salesId;
     private javax.swing.JButton staffFormButton;
     private javax.swing.JTextField staffId;
