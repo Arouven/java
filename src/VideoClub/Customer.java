@@ -18,7 +18,6 @@ public class Customer {//member parent class
     private int customerPhoneNo;   
     private boolean member;
         
-    public static int noOfCustomers = 0;//global var
     
     //constructor
     public Customer() {
@@ -66,17 +65,6 @@ public class Customer {//member parent class
     }    
     
     //methods
-    public static void addCustomer(){ 
-        noOfCustomers ++;
-        System.out.println("customer created.");
-    }
-    public static void deleteCustomer(){
-        noOfCustomers --;
-        System.out.println("customer deleted.");
-    }
-    public static String displayAddedCustomers(){
-        return "Number of customers added: " + noOfCustomers;
-    }
     public String displayCustomerDetails(){
         return
                 "Customer id is: \t\t" + getCustomerId() + "\n" +
