@@ -15,9 +15,7 @@ import java.util.Date;
 public class Sales {
     //vars
     private int salesId;
-    private String currentDate;
-    
-    private static int noSalePerform = 0;    
+    private String currentDate;   
     
     //associative objects
     public Customer customerObj = new Customer();
@@ -43,22 +41,16 @@ public class Sales {
     
     
     //method    
-    public String totalSales(){
-        return "The total Movies sold is: " + Integer.toString(noSalePerform);
-    }
     public String performSales(int noMoviesBought){
         if(customerObj.isMember() == true){//default for all members is 20%
             movieObj.setPercentageDiscount(20);
             movieObj.setMoviePriceForMember();
             
-            noSalePerform += noMoviesBought;
-            movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);
+            movieObj.setNoOfMovies(noMoviesBought);
         }
         else{
-            noSalePerform += noMoviesBought;
-            movieObj.setNoOfMovies(movieObj.getNoOfMovies() - 1);            
+            movieObj.setNoOfMovies(noMoviesBought);            
         }
-        System.out.println("no of sales perform " + noSalePerform);
         SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");  
         Date date = new Date();  
         String x = formatter.format(date); 
@@ -77,8 +69,9 @@ public class Sales {
             "Perform by: " + staffObj.getStaffName() + "\n" +
 
             "Movie id: " + movieObj.getMovieId() +"\n" +
-            "Movie name: " + movieObj.getMovieName() +"\n" +                    
+            "Movie name: " + movieObj.getMovieName() +"\n" +  
+            "No. of movies bought: " + movieObj.getNoOfMovies() +"\n" +  
             "Percentage discount " + movieObj.getPercentageDiscount() +" %\n" +
-            "Price: " + movieObj.getMoviePrice() +"\n\n";
+            "Price: " + movieObj.getMoviePrice() +" per unit.\n\n";
     }
 }

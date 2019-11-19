@@ -41,7 +41,6 @@ public class SalesForm extends javax.swing.JFrame {
         displayAllSalesButton = new javax.swing.JButton();
         updateSaleButton = new javax.swing.JButton();
         deleteSaleButton = new javax.swing.JButton();
-        searchMovieButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,26 +88,17 @@ public class SalesForm extends javax.swing.JFrame {
             }
         });
 
-        searchMovieButton.setText("Number of Sales");
-        searchMovieButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchMovieButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(72, 72, 72)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(newSaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(displayAllSalesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateSaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(deleteSaleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(newSaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayAllSalesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updateSaleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteSaleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -119,12 +109,10 @@ public class SalesForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(displayAllSalesButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchMovieButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(updateSaleButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteSaleButton)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,10 +136,10 @@ public class SalesForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exitButton)
-                    .addComponent(mainMenuButton))
+                    .addComponent(mainMenuButton)
+                    .addComponent(exitButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -176,22 +164,8 @@ public class SalesForm extends javax.swing.JFrame {
         String outputText = "";
         outputText = MainMenu.slArray.stream().map((sl) -> sl.printReceipt()).reduce(outputText, String::concat);
         sDetails.setText(outputText);
-        JOptionPane.showMessageDialog(this, sDetails, "Sale Detail", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, sDetails, "Sales Details", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_displayAllSalesButtonActionPerformed
-
-    private void searchMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMovieButtonActionPerformed
-        Sales sa = new Sales();
-        try{
-            String sl = JOptionPane.showInputDialog(this, sa.totalSales(), "Total Sales", JOptionPane.INFORMATION_MESSAGE);
-            if (sl != null) {
-                System.out.println("yes");
-            }
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(this, e, "Error", JOptionPane.ERROR_MESSAGE);
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_searchMovieButtonActionPerformed
 
     private void updateSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateSaleButtonActionPerformed
         try{
@@ -224,18 +198,21 @@ public class SalesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_updateSaleButtonActionPerformed
 
     private void deleteSaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSaleButtonActionPerformed
-        String movNameToSearch = JOptionPane.showInputDialog(this, "Search the movie(name) to delete: ", "Movie Name", JOptionPane.INFORMATION_MESSAGE);
-        if (movNameToSearch != null) {
+        String slIdToSearch = JOptionPane.showInputDialog(this, "Search the sale(id) to delete: ", "Sale ID", JOptionPane.INFORMATION_MESSAGE);
+        if (slIdToSearch != null) {
+            int toIntId = Integer.parseInt(slIdToSearch);
             int currentPosition = 0;
-            for(Movie mov: MainMenu.movArray){
-                String movName = mov.getMovieName();
-                if(movNameToSearch.equals(movName)){
-                    int descision = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this movie: " + movName + " ?","Delete Movie", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+            for(Sales sl: MainMenu.slArray){
+                if(toIntId == sl.getSalesId()){
+                    int descision = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this sale: " + toIntId + " ?","Delete Sale", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                     if(descision == 0){
-                        MainMenu.movArray.remove(currentPosition);
+                        
+                        
+                        
+                        MainMenu.slArray.remove(currentPosition);
                         System.out.println("deleted");
-                        JOptionPane.showMessageDialog(this, movName + " was deleted.", "Movie Deleted", JOptionPane.DEFAULT_OPTION);
+                        JOptionPane.showMessageDialog(this, toIntId + " was deleted.", "Sale Deleted", JOptionPane.DEFAULT_OPTION);
                         return;//exit the button function
                     }
                     else{
@@ -247,10 +224,10 @@ public class SalesForm extends javax.swing.JFrame {
             }
 
             System.out.println("current " + currentPosition);
-            System.out.println("size " + MainMenu.movArray.size());
+            System.out.println("size " + MainMenu.slArray.size());
 
-            if(currentPosition > MainMenu.movArray.size()-1){
-                JOptionPane.showMessageDialog(this, "Movie " + movNameToSearch + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
+            if(currentPosition > MainMenu.slArray.size()-1){
+                JOptionPane.showMessageDialog(this, "Sale " + toIntId + " Not Found!", "Not Found", JOptionPane.ERROR_MESSAGE);
             }
         }
         else{
@@ -300,7 +277,6 @@ public class SalesForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mainMenuButton;
     private javax.swing.JButton newSaleButton;
-    private javax.swing.JButton searchMovieButton;
     private javax.swing.JButton updateSaleButton;
     // End of variables declaration//GEN-END:variables
 }

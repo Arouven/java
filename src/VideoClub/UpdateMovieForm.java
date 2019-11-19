@@ -27,7 +27,6 @@ public class UpdateMovieForm extends javax.swing.JFrame {
         movieType.setText("");
         noOfMovies.setText(""); 
         moviePrice.setText("");
-        percentageDiscount.setText("");
         setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }
@@ -41,7 +40,6 @@ public class UpdateMovieForm extends javax.swing.JFrame {
         movieType.setText(mov.getMovieType());
         noOfMovies.setText(Integer.toString(mov.getNoOfMovies()));
         moviePrice.setText(Double.toString(mov.getMoviePrice()));
-        percentageDiscount.setText(Double.toString(mov.getPercentageDiscount()));
         setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
     }
@@ -65,10 +63,8 @@ public class UpdateMovieForm extends javax.swing.JFrame {
         noOfMovies = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         moviePrice = new javax.swing.JTextField();
-        percentageDiscount = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         staffFormButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
 
@@ -93,8 +89,6 @@ public class UpdateMovieForm extends javax.swing.JFrame {
 
         jLabel5.setText("Movie Price:");
 
-        jLabel6.setText("Percentage Discount:");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -102,26 +96,18 @@ public class UpdateMovieForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(movieName, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(movieType, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(noOfMovies)
-                            .addComponent(movieId)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(moviePrice)
-                            .addComponent(percentageDiscount))))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5))
+                .addGap(58, 58, 58)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(moviePrice)
+                    .addComponent(movieName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                    .addComponent(movieType, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(noOfMovies)
+                    .addComponent(movieId))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,10 +133,6 @@ public class UpdateMovieForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(moviePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(percentageDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -217,16 +199,12 @@ public class UpdateMovieForm extends javax.swing.JFrame {
             else if(moviePrice.getText().isEmpty()){
                 throw new Exception("Empty Price");
             }
-            else if(percentageDiscount.getText().isEmpty()){
-                throw new Exception("Empty Percentage Discount");
-            }
             else{
                 int movId = Integer.parseInt(movieId.getText());
                 String movName = movieName.getText();
                 String movType = movieType.getText();
                 int movNo = Integer.parseInt(noOfMovies.getText());
-                double movPrice = Double.parseDouble(moviePrice.getText());
-                double percentDisc = Double.parseDouble(percentageDiscount.getText());                
+                double movPrice = Double.parseDouble(moviePrice.getText());              
 
                 Movie myMov = MainMenu.movArray.get(indexOfUpdate);                
                 myMov.setMovieId(movId);
@@ -234,7 +212,6 @@ public class UpdateMovieForm extends javax.swing.JFrame {
                 myMov.setMovieType(movType);                
                 myMov.setNoOfMovies(movNo);
                 myMov.setMoviePrice(movPrice);
-                myMov.setPercentageDiscount(percentDisc);
 
                 this.setVisible(false);
                 JOptionPane.showMessageDialog(this, "Movie updated", "Movie updated", JOptionPane.DEFAULT_OPTION);
@@ -297,14 +274,12 @@ public class UpdateMovieForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField movieId;
     private javax.swing.JTextField movieName;
     private javax.swing.JTextField moviePrice;
     private javax.swing.JTextField movieType;
     private javax.swing.JTextField noOfMovies;
-    private javax.swing.JTextField percentageDiscount;
     private javax.swing.JButton staffFormButton;
     // End of variables declaration//GEN-END:variables
 }
